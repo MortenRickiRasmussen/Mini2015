@@ -1,4 +1,4 @@
-package miniprojekt2015;
+package Model;
 
 /**
  *

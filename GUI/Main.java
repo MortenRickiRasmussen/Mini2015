@@ -1,4 +1,6 @@
-package miniprojekt2015;
+package GUI;
+
+import Model.Pants;
 
 /**
  *
