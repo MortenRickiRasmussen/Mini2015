@@ -9,10 +9,6 @@ import java.util.ArrayList;
 public class Basket {
     private ArrayList<Product> items;
     
-    public Basket(){
-        
-    }
-    
     public void addItem(Product item) {
         items.add(item);
     }
