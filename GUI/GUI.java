@@ -32,26 +32,37 @@ public class GUI extends javax.swing.JFrame {
      */
     public GUI() {
         initComponents();
+        //--------------------------------------------------------------------------
+        //Sætter titlen på programmet
+        //--------------------------------------------------------------------------
         super.setTitle("Næstveds Tøjmagasin");
 
         basketPanel.setVisible(false);
+
+        //--------------------------------------------------------------------------
+        //Laver et basket Objekt og b
+        //--------------------------------------------------------------------------
         Basket basket = new Basket();
 
         totalAmount = basket.calculateTotalAmount();
         headerBeløb.setText(totalAmount + "0 DKK");
 
+        //--------------------------------------------------------------------------
+        // Initialisere produkt ArrayLists
+        //--------------------------------------------------------------------------
         tShirts = new ArrayList<>();
         pants = new ArrayList<>();
         shirts = new ArrayList<>();
-        
+
         DBHandler.loadArrayLists(tShirts, pants, shirts);
-        
+
+        //--------------------------------------------------------------------------
+        // Fylder de forskellige comboboxe op med data
+        //--------------------------------------------------------------------------
         for (TShirt tShirt : tShirts) {
-            tShirtProdukterCombo.addItem(tShirt);
+            tShirtCombo.addItem(tShirt);
         }
-        
-        
-        
+
     }
 
     /**
@@ -72,15 +83,15 @@ public class GUI extends javax.swing.JFrame {
         mainPane = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        tShirtProdukterCombo = new javax.swing.JComboBox();
+        tShirtCombo = new javax.swing.JComboBox();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox();
-        jLabel6 = new javax.swing.JLabel();
+        tShirtStørrelseCombo = new javax.swing.JComboBox();
+        tShirtStørrelseLabel = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        tShirtPrisLabel = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         basketPanel = new javax.swing.JPanel();
@@ -149,9 +160,10 @@ public class GUI extends javax.swing.JFrame {
 
         mainPane.addTab("Bukser", jPanel1);
 
-        tShirtProdukterCombo.addActionListener(new java.awt.event.ActionListener() {
+        tShirtCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
+        tShirtCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tShirtProdukterComboActionPerformed(evt);
+                tShirtComboActionPerformed(evt);
             }
         });
 
@@ -159,14 +171,14 @@ public class GUI extends javax.swing.JFrame {
 
         jLabel5.setText("Størrelser:");
 
-        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+        tShirtStørrelseCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox2ActionPerformed(evt);
+                tShirtStørrelseComboActionPerformed(evt);
             }
         });
 
-        jLabel6.setText(" ");
-        jLabel6.setToolTipText("");
+        tShirtStørrelseLabel.setText(" ");
+        tShirtStørrelseLabel.setToolTipText("");
 
         jLabel7.setText("Vælg Størrelse");
 
@@ -174,7 +186,7 @@ public class GUI extends javax.swing.JFrame {
 
         jLabel8.setText("Pris:");
 
-        jLabel9.setText("0,00 ");
+        tShirtPrisLabel.setText("0,00 ");
 
         jLabel10.setText("DKK");
 
@@ -193,17 +205,17 @@ public class GUI extends javax.swing.JFrame {
                                 .addComponent(jLabel4)
                                 .addGap(245, 245, 245))
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(tShirtProdukterCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(tShirtCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGap(86, 86, 86)))
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel9)
+                                .addComponent(tShirtPrisLabel)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel10))
                             .addComponent(jLabel8)))
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)))
+                        .addComponent(tShirtStørrelseCombo, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(tShirtStørrelseLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)))
                 .addContainerGap(292, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -219,17 +231,17 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tShirtProdukterCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9)
+                    .addComponent(tShirtCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tShirtPrisLabel)
                     .addComponent(jLabel10))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6)
+                .addComponent(tShirtStørrelseLabel)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tShirtStørrelseCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 254, Short.MAX_VALUE)
                 .addComponent(jButton2)
                 .addContainerGap())
@@ -339,13 +351,13 @@ public class GUI extends javax.swing.JFrame {
         basketPanel.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+    private void tShirtStørrelseComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tShirtStørrelseComboActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox2ActionPerformed
+    }//GEN-LAST:event_tShirtStørrelseComboActionPerformed
 
-    private void tShirtProdukterComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tShirtProdukterComboActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tShirtProdukterComboActionPerformed
+    private void tShirtComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tShirtComboActionPerformed
+
+    }//GEN-LAST:event_tShirtComboActionPerformed
 
     /**
      * @param args the command line arguments
@@ -389,22 +401,22 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel headerBeløb;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox jComboBox2;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTabbedPane mainPane;
-    private javax.swing.JComboBox tShirtProdukterCombo;
+    private javax.swing.JComboBox tShirtCombo;
+    private javax.swing.JLabel tShirtPrisLabel;
+    private javax.swing.JComboBox tShirtStørrelseCombo;
+    private javax.swing.JLabel tShirtStørrelseLabel;
     private javax.swing.JPanel topPanel;
     // End of variables declaration//GEN-END:variables
 }

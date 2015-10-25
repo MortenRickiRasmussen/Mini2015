@@ -22,7 +22,11 @@ public class DBHandler {
     private static final String SCHEMA = "/miniprojektprodukter";
     private static Connection conn;
     private static Statement stmt;
-
+    
+    
+    //--------------------------------------------------------------------------
+    // CreateCoon = Laver connection til DB
+    //--------------------------------------------------------------------------
     public static void createConn() {
         try {
             Class.forName(JDBC_DRIVER);
@@ -32,7 +36,11 @@ public class DBHandler {
             Logger.getLogger(DBHandler.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+    
+    
+    //--------------------------------------------------------------------------
+    // close = Lukker Connection og statement
+    //--------------------------------------------------------------------------
     public static void close() {
         try {
             stmt.close();
@@ -42,17 +50,9 @@ public class DBHandler {
         }
     }
 
-    public static void databaseExecute(String mySQLStatement) {
-        try {
-            createConn();
-            stmt.execute(mySQLStatement);
-            stmt.closeOnCompletion();
-            conn.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(DBHandler.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
+    //--------------------------------------------------------------------------
+    // databaseRetrive henter data fra databasen og returner et ResultSet
+    //--------------------------------------------------------------------------
     public static ResultSet databaseRetrive(String mySQLStatement) {
         ResultSet rs = null;
 
@@ -66,6 +66,10 @@ public class DBHandler {
         return rs;
     }
 
+    //--------------------------------------------------------------------------
+    // getTShirts, getShirts og getPants laver oplysningerne fra databasen om
+    // til de retmæssige objekter.
+    //--------------------------------------------------------------------------
     public static TShirt getTShirts(ResultSet rs) {
         String productName = null;
         String color = null;
@@ -89,16 +93,9 @@ public class DBHandler {
             Logger.getLogger(DBHandler.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        TShirt tShirt = new TShirt();
-        tShirt.setName(productName);
-        tShirt.setColor(color);
-        tShirt.setPrice(price);
-        tShirt.setSizeS(sizeS);
-        tShirt.setSizeM(sizeM);
-        tShirt.setSizeL(sizeL);
-        tShirt.setSizeXL(sizeXL);
-        tShirt.setSizeXXL(sizeXXL);
-
+        
+        TShirt tShirt = new TShirt(productName, color, price, sizeS, sizeM, sizeL, sizeXL, sizeXXL);
+        
         return tShirt;
     }
 
@@ -173,6 +170,10 @@ public class DBHandler {
         return pants;
     }
 
+    //--------------------------------------------------------------------------
+    // LoadArrayLists ligger objekterne fra getTShirts osv. ind i arrayLists 
+    // som programmet bruger
+    //--------------------------------------------------------------------------
     public static void loadArrayLists(ArrayList tShirts, ArrayList pants, ArrayList shirts) {
         try {
             ResultSet rs = DBHandler.databaseRetrive("SELECT * FROM tshirts");
