@@ -171,6 +171,7 @@ public class GUI extends javax.swing.JFrame {
 
         jLabel5.setText("Størrelser:");
 
+        tShirtStørrelseCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
         tShirtStørrelseCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tShirtStørrelseComboActionPerformed(evt);
@@ -356,7 +357,7 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_tShirtStørrelseComboActionPerformed
 
     private void tShirtComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tShirtComboActionPerformed
-
+        
     }//GEN-LAST:event_tShirtComboActionPerformed
 
     /**
