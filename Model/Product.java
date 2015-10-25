@@ -7,7 +7,7 @@ package Model;
 public abstract class Product {
     private String name;
     private String color;
-    private int price;
+    private double price;
     
     //--------------------------------------------------------------------------
     // Accessors
@@ -21,7 +21,7 @@ public abstract class Product {
         return color;
     }
     
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
     
@@ -37,7 +37,7 @@ public abstract class Product {
         this.color = color;
     }
     
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 }

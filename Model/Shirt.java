@@ -14,17 +14,17 @@ public class Shirt extends Product{
     private boolean size44;
     private boolean size45;
     
-    public Shirt(String name, String color, int price, boolean size38, boolean size39, boolean size40, boolean size41, boolean size42, boolean size43, boolean size44, boolean size45) {
+    public Shirt(String name, String color, double price, boolean size38, boolean size39, boolean size40, boolean size41, boolean size42, boolean size43, boolean size44, boolean size45) {
         super.setName(name);
         super.setColor(color);
         super.setPrice(price);
         this.size38 = size38;
-        this.size38 = size39;
-        this.size38 = size40;
-        this.size38 = size41;
-        this.size38 = size42;
-        this.size38 = size43;
-        this.size38 = size44;
-        this.size38 = size45;
+        this.size39 = size39;
+        this.size40 = size40;
+        this.size41 = size41;
+        this.size42 = size42;
+        this.size43 = size43;
+        this.size44 = size44;
+        this.size45 = size45;
     }
 }

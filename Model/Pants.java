@@ -15,7 +15,7 @@ public class Pants extends Product{
     private boolean size36;
     private boolean size38;
     
-    public Pants(String name, String color, int price, boolean size28, boolean size29, boolean size30, boolean size31, boolean size32, boolean size33, boolean size34, boolean size36, boolean size38) {
+    public Pants(String name, String color, double price, boolean size28, boolean size29, boolean size30, boolean size31, boolean size32, boolean size33, boolean size34, boolean size36, boolean size38) {
         super.setName(name);
         super.setColor(color);
         super.setPrice(price);
