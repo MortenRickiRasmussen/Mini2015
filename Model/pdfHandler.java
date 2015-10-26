@@ -1,6 +1,8 @@
 
 package Model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Jakob
@@ -8,8 +10,10 @@ package Model;
 public class pdfHandler {
     private static int correctCount;
     private static PdfGenerator pdf;
+    private static float moms;
+    private static float total;
     
-    public static boolean gemPdf(String name, String streetName, String streetNum, String cityName, String postalCode, String email, String tlf, String cardNumber, String cardType, String cardMonth, String cardYear, String cardCCV, Product basket){
+    public static boolean gemPdf(String name, String streetName, String streetNum, String cityName, String postalCode, String email, String tlf, String cardNumber, String cardType, String cardMonth, String cardYear, String cardCCV, ArrayList basket){
         correctCount = 0;
         pdf = new PdfGenerator();
         if (name.contains(" ") && name.length() > 2){
@@ -41,6 +45,10 @@ public class pdfHandler {
         }
         if (correctCount == 9){
             
+            pdf.setBy(cityName);
+            pdf.setEmail(email);
+            pdf.setFakNummer(fakNum);
+            pdf.setKundeNavn(name);
             return true;
         }else{
             return false;
