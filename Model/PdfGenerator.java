@@ -22,26 +22,26 @@ import org.apache.pdfbox.pdmodel.font.PDTrueTypeFont;
  * @author Jakob
  */
 public class PdfGenerator {
-    private String kundeNavn;
-    private String vejNavn;
-    private int vejNr;
-    private String postNummer;
-    private String by;
-    private String email;
-    private String telefonNr;
-    private String[] ydelseNavn;
-    private String[] ydelsePris;
-    private String fakNummer;
-    private float moms;
-    private float total;
-    private String localCopyPath;
-    private String serverCopyPath;
+    private static String kundeNavn;
+    private static String vejNavn;
+    private static int vejNr;
+    private static String postNummer;
+    private static String by;
+    private static String emailAdresse;
+    private static String telefonNr;
+    private static String[] ydelseNavn;
+    private static String[] ydelsePris;
+    private static String fakNummer;
+    private static float moms;
+    private static float total;
+    private static String localCopyPath;
+    private static String serverCopyPath;
     
     public void PdfGenerator(){
         kundeNavn = "";
         vejNavn = "";
         by = "";
-        email = "";
+        emailAdresse = "";
         telefonNr = "";
         postNummer = "";
         ydelseNavn = new String[16];
@@ -50,7 +50,17 @@ public class PdfGenerator {
         serverCopyPath = "";
     }
 
-    public boolean generatePDF() throws IOException, COSVisitorException{
+    public static boolean generatePDF(String name, String email, String tlf,  ) throws IOException, COSVisitorException{
+        kundeNavn = "";
+        vejNavn = "";
+        by = "";
+        emailAdresse = "";
+        telefonNr = "";
+        postNummer = "";
+        ydelseNavn = new String[16];
+        ydelsePris = new String[16];
+        localCopyPath = "";
+        serverCopyPath = "";
         PDDocument faktura = new PDDocument();
         PDPage page = new PDPage(PDPage.PAGE_SIZE_A4);
         faktura.addPage(page);
@@ -96,7 +106,7 @@ public class PdfGenerator {
             contentStream.drawString(telefonNr+"");
         }
         contentStream.moveTextPositionByAmount(0, -12);
-        contentStream.drawString(email);
+        contentStream.drawString(emailAdresse);
         contentStream.endText();
         
         contentStream.beginText();
@@ -333,7 +343,7 @@ public class PdfGenerator {
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        this.emailAdresse = email;
     }
 
     public void setTelefonNr(String telefonNr) {
