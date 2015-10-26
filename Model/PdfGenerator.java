@@ -11,31 +11,25 @@ import org.apache.pdfbox.pdmodel.edit.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.font.PDFont;
 import org.apache.pdfbox.pdmodel.font.PDTrueTypeFont;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
  *
  * @author Jakob
  */
 public class PdfGenerator {
-    private static String kundeNavn;
-    private static String vejNavn;
-    private static int vejNr;
-    private static String postNummer;
-    private static String by;
-    private static String emailAdresse;
-    private static String telefonNr;
-    private static String[] ydelseNavn;
-    private static String[] ydelsePris;
-    private static String fakNummer;
-    private static float moms;
-    private static float total;
-    private static String localCopyPath;
-    private static String serverCopyPath;
+    private String kundeNavn;
+    private String vejNavn;
+    private int vejNr;
+    private String postNummer;
+    private String by;
+    private String emailAdresse;
+    private String telefonNr;
+    private String[] ydelseNavn;
+    private String[] ydelsePris;
+    private String fakNummer;
+    private float moms;
+    private float total;
+    private String localCopyPath;
+    private String serverCopyPath;
     
     public void PdfGenerator(){
         kundeNavn = "";
@@ -50,17 +44,7 @@ public class PdfGenerator {
         serverCopyPath = "";
     }
 
-    public static boolean generatePDF(String name, String email, String tlf, String streetName, String streetNum, String cityName, String postalCode) throws IOException, COSVisitorException{
-        kundeNavn = "";
-        vejNavn = "";
-        by = "";
-        emailAdresse = "";
-        telefonNr = "";
-        postNummer = "";
-        ydelseNavn = new String[16];
-        ydelsePris = new String[16];
-        localCopyPath = "";
-        serverCopyPath = "";
+    public boolean generatePDF() throws IOException, COSVisitorException{
         PDDocument faktura = new PDDocument();
         PDPage page = new PDPage(PDPage.PAGE_SIZE_A4);
         faktura.addPage(page);
