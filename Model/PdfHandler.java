@@ -12,7 +12,7 @@ import org.apache.pdfbox.exceptions.COSVisitorException;
  *
  * @author Jakob
  */
-public class pdfHandler {
+public class PdfHandler {
     private static int correctCount;
     private static PdfGenerator pdf;
     private static ReadFile fakNum;
