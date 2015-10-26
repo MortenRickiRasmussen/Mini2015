@@ -286,9 +286,9 @@ public class PdfGenerator {
         contentStream.beginText();
         contentStream.setFont(font, 10);
         contentStream.moveTextPositionByAmount(45, 157);
-        contentStream.drawString("Beløbet overføres til konto nr. 9819-4579835082, med navn og faktura nummer.");
+        contentStream.drawString("");
         contentStream.moveTextPositionByAmount(0, -96);
-        contentStream.drawString("Hvis der er spørgsmål til denne faktura, bedes De venligst kontakte Lilly, 26110343, lilly@sunshineyoga.dk");
+        contentStream.drawString("");
         contentStream.endText();
                 
         contentStream.close();
