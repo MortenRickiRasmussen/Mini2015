@@ -8,6 +8,7 @@ package GUI;
 import Model.Basket;
 import Model.DBHandler;
 import Model.Pants;
+import Model.PdfHandler;
 import Model.Product;
 import Model.Shirt;
 import Model.TShirt;
@@ -786,7 +787,7 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_basketCheckoutButtonActionPerformed
 
     private void testPDFButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testPDFButtonActionPerformed
-        // TODO add your handling code here:
+        PdfHandler.gemPdf("Jakob Ferdinandsen", "Solbakkevej", "27", "Næstved", "4700", "mollyjakob@gmail.com", "53650549", "1234567890111111", "Visa", "05", "1967", "555", kurv.returnBasket(), kurv., TOP_ALIGNMENT);
     }//GEN-LAST:event_testPDFButtonActionPerformed
 
     /**

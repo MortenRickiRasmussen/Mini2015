@@ -46,5 +46,8 @@ public class Basket {
     public ArrayList returnBasket() {
         return items;
     }
+    public ArrayList returnSelectedSize(){
+        return selectedSize;
+    }
 
 }
