@@ -50,7 +50,7 @@ public class PdfGenerator {
         serverCopyPath = "";
     }
 
-    public static boolean generatePDF(String name, String email, String tlf,  ) throws IOException, COSVisitorException{
+    public static boolean generatePDF(String name, String email, String tlf, String streetName, String streetNum, String cityName, String postalCode) throws IOException, COSVisitorException{
         kundeNavn = "";
         vejNavn = "";
         by = "";
@@ -317,7 +317,6 @@ public class PdfGenerator {
         Overlay overlay = new Overlay();
         overlay.overlay(fakForm, faktura);
         faktura.save(localCopyPath+"/Faktura "+fakNummer+" "+kundeNavn+".pdf");
-        faktura.save(serverCopyPath+"/Faktura "+fakNummer+" "+kundeNavn+".pdf");
         fakForm.close();
         faktura.close();
         return true;
