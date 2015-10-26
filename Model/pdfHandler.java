@@ -1,7 +1,10 @@
 
 package Model;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import org.apache.pdfbox.exceptions.COSVisitorException;
 
@@ -16,7 +19,7 @@ public class pdfHandler {
     private static int fakturaNummer;
     private static String fakNumZeroes;
     
-    public static boolean gemPdf(String name, String streetName, String streetNum, String cityName, String postalCode, String email, String tlf, String cardNumber, String cardType, String cardMonth, String cardYear, String cardCCV, ArrayList<Product> items, ArrayList sizes, float total) throws IOException, COSVisitorException{
+    public static boolean gemPdf(String name, String streetName, String streetNum, String cityName, String postalCode, String email, String tlf, String cardNumber, String cardType, String cardMonth, String cardYear, String cardCCV, ArrayList<Product> items, ArrayList sizes, float total) throws IOException, COSVisitorException, FileNotFoundException, UnsupportedEncodingException{
         correctCount = 0;
         pdf = new PdfGenerator();
         fakNum = new ReadFile("fakNum.txt");
@@ -69,6 +72,10 @@ public class pdfHandler {
             pdf.setMoms(total*0.2f);
             if (pdf.generatePDF()){
                 fakturaNummer++;
+                PrintWriter writer = null;
+                writer = new PrintWriter("fakNum.txt", "UTF-8");
+                writer.println(fakturaNummer+"");
+                writer.close();
                 return true;
             }else{
                 return false;
