@@ -754,14 +754,14 @@ public class GUI extends javax.swing.JFrame {
 
     private void addShirtToBasketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addShirtToBasketActionPerformed
         if (shirtCombo.getSelectedIndex() != 0){
-            kurv.addItem((Product) shirtCombo.getSelectedItem(), (String) tShirtSizeCombo.getSelectedItem());
+            kurv.addItem((Product) shirtCombo.getSelectedItem(), (String) shirtSizeCombo.getSelectedItem());
             calculateAmount();
         }
     }//GEN-LAST:event_addShirtToBasketActionPerformed
 
     private void addPantsToBasketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPantsToBasketActionPerformed
         if (pantsCombo.getSelectedIndex() != 0){
-            kurv.addItem((Product) pantsCombo.getSelectedItem(), (String) tShirtSizeCombo.getSelectedItem());
+            kurv.addItem((Product) pantsCombo.getSelectedItem(), (String) pantsSizeCombo.getSelectedItem());
             calculateAmount();
         }
     }//GEN-LAST:event_addPantsToBasketActionPerformed
