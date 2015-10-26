@@ -747,21 +747,21 @@ public class GUI extends javax.swing.JFrame {
 
     private void addTShirtToBasketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addTShirtToBasketActionPerformed
         if (tShirtCombo.getSelectedIndex() != 0){
-            kurv.addItem((Product) tShirtCombo.getSelectedItem());
+            kurv.addItem((Product) tShirtCombo.getSelectedItem(), (String) tShirtSizeCombo.getSelectedItem());
             calculateAmount();
         }
     }//GEN-LAST:event_addTShirtToBasketActionPerformed
 
     private void addShirtToBasketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addShirtToBasketActionPerformed
         if (shirtCombo.getSelectedIndex() != 0){
-            kurv.addItem((Product) shirtCombo.getSelectedItem());
+            kurv.addItem((Product) shirtCombo.getSelectedItem(), (String) tShirtSizeCombo.getSelectedItem());
             calculateAmount();
         }
     }//GEN-LAST:event_addShirtToBasketActionPerformed
 
     private void addPantsToBasketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPantsToBasketActionPerformed
         if (pantsCombo.getSelectedIndex() != 0){
-            kurv.addItem((Product) pantsCombo.getSelectedItem());
+            kurv.addItem((Product) pantsCombo.getSelectedItem(), (String) tShirtSizeCombo.getSelectedItem());
             calculateAmount();
         }
     }//GEN-LAST:event_addPantsToBasketActionPerformed

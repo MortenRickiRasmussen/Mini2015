@@ -10,6 +10,7 @@ public class Basket {
 
     private String name;
     private ArrayList<Product> items;
+    private ArrayList<String> selectedSize;
 
     public Basket() {
         this.name = "Basket";
@@ -19,8 +20,9 @@ public class Basket {
     //--------------------------------------------------------------------------
     // Tilføjer et produkt til kurven
     //--------------------------------------------------------------------------
-    public void addItem(Product item) {
+    public void addItem(Product item, String size) {
         items.add(item);
+        selectedSize.add(size);
     }
 
     //--------------------------------------------------------------------------
