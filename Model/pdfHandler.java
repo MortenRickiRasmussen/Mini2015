@@ -1,7 +1,9 @@
 
 package Model;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import org.apache.pdfbox.exceptions.COSVisitorException;
 
 /**
  *
@@ -10,11 +12,15 @@ import java.util.ArrayList;
 public class pdfHandler {
     private static int correctCount;
     private static PdfGenerator pdf;
-    private static Basket 
+    private static ReadFile fakNum;
+    private static int fakturaNummer;
+    private static String fakNumZeroes;
     
-    public static boolean gemPdf(String name, String streetName, String streetNum, String cityName, String postalCode, String email, String tlf, String cardNumber, String cardType, String cardMonth, String cardYear, String cardCCV, ArrayList<Product> items, ArrayList sizes, float total){
+    public static boolean gemPdf(String name, String streetName, String streetNum, String cityName, String postalCode, String email, String tlf, String cardNumber, String cardType, String cardMonth, String cardYear, String cardCCV, ArrayList<Product> items, ArrayList sizes, float total) throws IOException, COSVisitorException{
         correctCount = 0;
         pdf = new PdfGenerator();
+        fakNum = new ReadFile("fakNum.txt");
+        fakturaNummer = Integer.parseInt(fakNum.openFile()[0]);
         if (name.contains(" ") && name.length() > 2){
             correctCount++;
         }
@@ -47,10 +53,13 @@ public class pdfHandler {
                 pdf.setYdelseNavn(items.get(i).toString()+", "+sizes.get(i), i);
                 pdf.setYdelsePris(items.get(i).getPrice()+"", i);
             }
-            
+            fakNumZeroes = "";
+            for (int i = 0; i < (4-((fakturaNummer+"").length())); i++) {
+            fakNumZeroes = fakNumZeroes.concat("0");            
+            }
             pdf.setBy(cityName);
             pdf.setEmail(email);
-            pdf.setFakNummer(fakNum);
+            pdf.setFakNummer(fakNumZeroes+fakturaNummer);
             pdf.setKundeNavn(name);
             pdf.setPostNummer(postalCode);
             pdf.setTelefonNr(tlf);
@@ -58,7 +67,12 @@ public class pdfHandler {
             pdf.setVejNr(Integer.parseInt(streetNum));
             pdf.setTotal(total);
             pdf.setMoms(total*0.2f);
-            return true;
+            if (pdf.generatePDF()){
+                fakturaNummer++;
+                return true;
+            }else{
+                return false;
+            }
         }else{
             return false;
         }
