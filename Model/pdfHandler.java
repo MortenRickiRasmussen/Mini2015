@@ -13,7 +13,7 @@ public class pdfHandler {
     private static float moms;
     private static float total;
     
-    public static boolean gemPdf(String name, String streetName, String streetNum, String cityName, String postalCode, String email, String tlf, String cardNumber, String cardType, String cardMonth, String cardYear, String cardCCV, ArrayList items, ArrayList sizes){
+    public static boolean gemPdf(String name, String streetName, String streetNum, String cityName, String postalCode, String email, String tlf, String cardNumber, String cardType, String cardMonth, String cardYear, String cardCCV, ArrayList<Product> items, ArrayList sizes){
         correctCount = 0;
         pdf = new PdfGenerator();
         if (name.contains(" ") && name.length() > 2){
@@ -44,6 +44,10 @@ public class pdfHandler {
             correctCount++;
         }
         if (correctCount == 9){
+            for (int i = 0; i < items.size(); i++) {
+                pdf.setYdelseNavn(items.get(i).toString()+", "+sizes.get(i), i);
+                pdf.setYdelsePris(items.get(i).getPrice()+"", i);
+            }
             
             pdf.setBy(cityName);
             pdf.setEmail(email);
