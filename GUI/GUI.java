@@ -11,11 +11,7 @@ import Model.Pants;
 import Model.Product;
 import Model.Shirt;
 import Model.TShirt;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * @author Jakob Ferdinandsen
@@ -45,6 +41,7 @@ public class GUI extends javax.swing.JFrame {
         super.setTitle("Næstveds Tøjmagasin");
 
         basketPanel.setVisible(false);
+        checkoutPanel.setVisible(false);
 
         //--------------------------------------------------------------------------
         //Laver et basket Objekt og b
@@ -120,6 +117,8 @@ public class GUI extends javax.swing.JFrame {
         basketPanel = new javax.swing.JPanel();
         basketCheckoutButton = new javax.swing.JButton();
         basketBackButton = new javax.swing.JButton();
+        checkoutPanel = new javax.swing.JPanel();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -404,6 +403,11 @@ public class GUI extends javax.swing.JFrame {
         basketPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         basketCheckoutButton.setText("Bestil");
+        basketCheckoutButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                basketCheckoutButtonActionPerformed(evt);
+            }
+        });
 
         basketBackButton.setText("Tilbage til kataloget");
         basketBackButton.addActionListener(new java.awt.event.ActionListener() {
@@ -433,6 +437,27 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        checkoutPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        jButton2.setText("jButton2");
+
+        javax.swing.GroupLayout checkoutPanelLayout = new javax.swing.GroupLayout(checkoutPanel);
+        checkoutPanel.setLayout(checkoutPanelLayout);
+        checkoutPanelLayout.setHorizontalGroup(
+            checkoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(checkoutPanelLayout.createSequentialGroup()
+                .addGap(242, 242, 242)
+                .addComponent(jButton2)
+                .addContainerGap(365, Short.MAX_VALUE))
+        );
+        checkoutPanelLayout.setVerticalGroup(
+            checkoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(checkoutPanelLayout.createSequentialGroup()
+                .addGap(235, 235, 235)
+                .addComponent(jButton2)
+                .addContainerGap(246, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
         jLayeredPane1Layout.setHorizontalGroup(
@@ -446,6 +471,11 @@ public class GUI extends javax.swing.JFrame {
                     .addContainerGap()
                     .addComponent(basketPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addContainerGap()))
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(checkoutPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
         jLayeredPane1Layout.setVerticalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -458,9 +488,15 @@ public class GUI extends javax.swing.JFrame {
                     .addContainerGap()
                     .addComponent(basketPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addContainerGap()))
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(checkoutPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
         jLayeredPane1.setLayer(mainPane, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(basketPanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(checkoutPanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -539,19 +575,30 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_shirtComboActionPerformed
 
     private void addTShirtToBasketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addTShirtToBasketActionPerformed
-        kurv.addItem((Product) tShirtCombo.getSelectedItem());
-        calculateAmount();
+        if (tShirtCombo.getSelectedIndex() != 0){
+            kurv.addItem((Product) tShirtCombo.getSelectedItem());
+            calculateAmount();
+        }
     }//GEN-LAST:event_addTShirtToBasketActionPerformed
 
     private void addShirtToBasketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addShirtToBasketActionPerformed
-        kurv.addItem((Product) shirtCombo.getSelectedItem());
-        calculateAmount();
+        if (shirtCombo.getSelectedIndex() != 0){
+            kurv.addItem((Product) shirtCombo.getSelectedItem());
+            calculateAmount();
+        }
     }//GEN-LAST:event_addShirtToBasketActionPerformed
 
     private void addPantsToBasketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPantsToBasketActionPerformed
-        kurv.addItem((Product) pantsCombo.getSelectedItem());
-        calculateAmount();
+        if (pantsCombo.getSelectedIndex() != 0){
+            kurv.addItem((Product) pantsCombo.getSelectedItem());
+            calculateAmount();
+        }
     }//GEN-LAST:event_addPantsToBasketActionPerformed
+
+    private void basketCheckoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_basketCheckoutButtonActionPerformed
+        basketPanel.setVisible(false);
+        checkoutPanel.setVisible(true);
+    }//GEN-LAST:event_basketCheckoutButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -595,8 +642,10 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton basketBackButton;
     private javax.swing.JButton basketCheckoutButton;
     private javax.swing.JPanel basketPanel;
+    private javax.swing.JPanel checkoutPanel;
     private javax.swing.JLabel headerBeløb;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
