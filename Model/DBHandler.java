@@ -37,7 +37,6 @@ public class DBHandler {
         }
     }
     
-    
     //--------------------------------------------------------------------------
     // close = Lukker Connection og statement
     //--------------------------------------------------------------------------
@@ -94,7 +93,7 @@ public class DBHandler {
         }
 
         
-        TShirt tShirt = new TShirt(productName, color, price, sizeS, sizeM, sizeL, sizeXL, sizeXXL);
+        TShirt tShirt = new TShirt(productName, color, (float) price, sizeS, sizeM, sizeL, sizeXL, sizeXXL);
         
         return tShirt;
     }
@@ -115,7 +114,7 @@ public class DBHandler {
         try {
             productName = rs.getString("Product_name");
             color = rs.getString("color");
-            price = rs.getDouble("price");
+            price = rs.getFloat("price");
             size38 = rs.getBoolean("size38");
             size39 = rs.getBoolean("size39");
             size40 = rs.getBoolean("size40");
@@ -128,7 +127,7 @@ public class DBHandler {
             Logger.getLogger(DBHandler.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        Shirt shirt = new Shirt(productName, color, price, size38, size39, size40, size41, size42, size43, size44, size45);
+        Shirt shirt = new Shirt(productName, color, (float) price, size38, size39, size40, size41, size42, size43, size44, size45);
 
         return shirt;
     }
@@ -150,7 +149,7 @@ public class DBHandler {
         try {
             productName = rs.getString("Product_name");
             color = rs.getString("color");
-            price = rs.getDouble("price");
+            price = rs.getFloat("price");
             size28 = rs.getBoolean("size28");
             size29 = rs.getBoolean("size29");
             size30 = rs.getBoolean("size30");
@@ -165,7 +164,7 @@ public class DBHandler {
             Logger.getLogger(DBHandler.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        Pants pants = new Pants(productName, color, price, size28, size29, size30, size31, size32, size33, size34, size36, size38);
+        Pants pants = new Pants(productName, color, (float) price, size28, size29, size30, size31, size32, size33, size34, size36, size38);
 
         return pants;
     }

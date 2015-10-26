@@ -20,8 +20,8 @@ public class Basket {
         items.add(item);
     }
 
-    public double calculateTotalAmount() {
-        double totalAmount = 0;
+    public float calculateTotalAmount() {
+        float totalAmount = 0;
 
         if (items.isEmpty()) {
             totalAmount = 0;

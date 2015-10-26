@@ -8,6 +8,7 @@ package GUI;
 import Model.Basket;
 import Model.DBHandler;
 import Model.Pants;
+import Model.Product;
 import Model.Shirt;
 import Model.TShirt;
 import java.sql.ResultSet;
@@ -26,10 +27,16 @@ public class GUI extends javax.swing.JFrame {
     private ArrayList<TShirt> tShirts;
     private ArrayList<Pants> pants;
     private ArrayList<Shirt> shirts;
+    private Basket kurv;
 
     /**
      * Creates new form GUI
      */
+    public void calculateAmount() {
+        String totalAmount = kurv.calculateTotalAmount() + " DKK";
+        headerBeløb.setText(totalAmount);
+    }
+
     public GUI() {
         initComponents();
         //--------------------------------------------------------------------------
@@ -42,9 +49,9 @@ public class GUI extends javax.swing.JFrame {
         //--------------------------------------------------------------------------
         //Laver et basket Objekt og b
         //--------------------------------------------------------------------------
-        Basket basket = new Basket();
+        kurv = new Basket();
 
-        totalAmount = basket.calculateTotalAmount();
+        totalAmount = kurv.calculateTotalAmount();
         headerBeløb.setText(totalAmount + "0 DKK");
 
         //--------------------------------------------------------------------------
@@ -62,7 +69,12 @@ public class GUI extends javax.swing.JFrame {
         for (TShirt tShirt : tShirts) {
             tShirtCombo.addItem(tShirt);
         }
-
+        for (Shirt shirt : shirts) {
+            shirtCombo.addItem(shirt);
+        }
+        for (int i = 0; i < pants.size(); i++) {
+            pantsCombo.addItem(pants.get(i));   
+        }
     }
 
     /**
@@ -81,19 +93,30 @@ public class GUI extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLayeredPane1 = new javax.swing.JLayeredPane();
         mainPane = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         tShirtCombo = new javax.swing.JComboBox();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        tShirtStørrelseCombo = new javax.swing.JComboBox();
-        tShirtStørrelseLabel = new javax.swing.JLabel();
+        tShirtSizeCombo = new javax.swing.JComboBox();
         jLabel7 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        addTShirtToBasket = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
-        tShirtPrisLabel = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
+        tShirtPriceLabel = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
+        shirtSizeCombo = new javax.swing.JComboBox();
+        jLabel11 = new javax.swing.JLabel();
+        shirtCombo = new javax.swing.JComboBox();
+        jLabel6 = new javax.swing.JLabel();
+        shirtPriceLabel = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        addShirtToBasket = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        pantsSizeCombo = new javax.swing.JComboBox();
+        jLabel9 = new javax.swing.JLabel();
+        pantsCombo = new javax.swing.JComboBox();
+        jLabel5 = new javax.swing.JLabel();
+        pantsPriceLabel = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        addPantsToBasket = new javax.swing.JButton();
         basketPanel = new javax.swing.JPanel();
         basketCheckoutButton = new javax.swing.JButton();
         basketBackButton = new javax.swing.JButton();
@@ -147,19 +170,6 @@ public class GUI extends javax.swing.JFrame {
 
         mainPane.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 673, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 339, Short.MAX_VALUE)
-        );
-
-        mainPane.addTab("Bukser", jPanel1);
-
         tShirtCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
         tShirtCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -169,27 +179,25 @@ public class GUI extends javax.swing.JFrame {
 
         jLabel4.setText("Vælg Produkt");
 
-        jLabel5.setText("Størrelser:");
-
-        tShirtStørrelseCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
-        tShirtStørrelseCombo.addActionListener(new java.awt.event.ActionListener() {
+        tShirtSizeCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
+        tShirtSizeCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tShirtStørrelseComboActionPerformed(evt);
+                tShirtSizeComboActionPerformed(evt);
             }
         });
 
-        tShirtStørrelseLabel.setText(" ");
-        tShirtStørrelseLabel.setToolTipText("");
-
         jLabel7.setText("Vælg Størrelse");
 
-        jButton2.setText("Læg i Kurv");
+        addTShirtToBasket.setText("Læg i Kurv");
+        addTShirtToBasket.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addTShirtToBasketActionPerformed(evt);
+            }
+        });
 
         jLabel8.setText("Pris:");
 
-        tShirtPrisLabel.setText("0,00 ");
-
-        jLabel10.setText("DKK");
+        tShirtPriceLabel.setText("0,00 ");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -198,7 +206,6 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
                     .addComponent(jLabel7)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -209,18 +216,13 @@ public class GUI extends javax.swing.JFrame {
                                 .addComponent(tShirtCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGap(86, 86, 86)))
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(tShirtPrisLabel)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel10))
+                            .addComponent(tShirtPriceLabel)
                             .addComponent(jLabel8)))
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(tShirtStørrelseCombo, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(tShirtStørrelseLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)))
-                .addContainerGap(292, Short.MAX_VALUE))
+                    .addComponent(tShirtSizeCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(329, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(addTShirtToBasket)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -233,35 +235,171 @@ public class GUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tShirtCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tShirtPrisLabel)
-                    .addComponent(jLabel10))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tShirtStørrelseLabel)
-                .addGap(18, 18, 18)
+                    .addComponent(tShirtPriceLabel))
+                .addGap(70, 70, 70)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tShirtStørrelseCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tShirtSizeCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 254, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(addTShirtToBasket)
                 .addContainerGap())
         );
 
         mainPane.addTab("T-shirts", jPanel2);
 
+        shirtSizeCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
+        shirtSizeCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                shirtSizeComboActionPerformed(evt);
+            }
+        });
+
+        jLabel11.setText("Vælg Størrelse");
+
+        shirtCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
+        shirtCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                shirtComboActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setText("Vælg Produkt");
+
+        shirtPriceLabel.setText("0,00 ");
+
+        jLabel12.setText("Pris:");
+
+        addShirtToBasket.setText("Læg i Kurv");
+        addShirtToBasket.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addShirtToBasketActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 673, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel11)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addGap(245, 245, 245))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(shirtCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(86, 86, 86)))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(shirtPriceLabel)
+                            .addComponent(jLabel12)))
+                    .addComponent(shirtSizeCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(329, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(addShirtToBasket)
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 339, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel12))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(shirtCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(shirtPriceLabel))
+                .addGap(70, 70, 70)
+                .addComponent(jLabel11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(shirtSizeCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 254, Short.MAX_VALUE)
+                .addComponent(addShirtToBasket)
+                .addContainerGap())
         );
 
         mainPane.addTab("Skjorter", jPanel3);
+
+        pantsSizeCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
+        pantsSizeCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pantsSizeComboActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setText("Vælg Størrelse");
+
+        pantsCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
+        pantsCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pantsComboActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("Vælg Produkt");
+
+        pantsPriceLabel.setText("0,00 ");
+
+        jLabel10.setText("Pris:");
+
+        addPantsToBasket.setText("Læg i Kurv");
+        addPantsToBasket.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addPantsToBasketActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel9)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addGap(245, 245, 245))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(pantsCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(86, 86, 86)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(pantsPriceLabel)
+                            .addComponent(jLabel10)))
+                    .addComponent(pantsSizeCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(329, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(addPantsToBasket)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel10))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(pantsCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pantsPriceLabel))
+                .addGap(70, 70, 70)
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pantsSizeCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 254, Short.MAX_VALUE)
+                .addComponent(addPantsToBasket)
+                .addContainerGap())
+        );
+
+        mainPane.addTab("Bukser", jPanel1);
 
         basketPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -352,13 +490,68 @@ public class GUI extends javax.swing.JFrame {
         basketPanel.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void tShirtStørrelseComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tShirtStørrelseComboActionPerformed
+    private void tShirtSizeComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tShirtSizeComboActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tShirtStørrelseComboActionPerformed
+    }//GEN-LAST:event_tShirtSizeComboActionPerformed
 
     private void tShirtComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tShirtComboActionPerformed
-        
+        tShirtSizeCombo.removeAllItems();
+
+        TShirt tshirt = (TShirt) tShirtCombo.getSelectedItem();
+
+        for (int i = 0; i < tshirt.getSizesSize(); i++) {
+            tShirtSizeCombo.addItem(tshirt.getSizes(i));
+        }
+
+        tShirtPriceLabel.setText(tshirt.getPrice() + " DKK");
     }//GEN-LAST:event_tShirtComboActionPerformed
+
+    private void pantsSizeComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pantsSizeComboActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pantsSizeComboActionPerformed
+
+    private void pantsComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pantsComboActionPerformed
+        pantsSizeCombo.removeAllItems();
+
+        Pants pants = (Pants) pantsCombo.getSelectedItem();
+
+        for (int i = 0; i < pants.getSizesSize(); i++) {
+            pantsSizeCombo.addItem(pants.getSizes(i));
+        }
+
+        pantsPriceLabel.setText(pants.getPrice() + " DKK");
+    }//GEN-LAST:event_pantsComboActionPerformed
+
+    private void shirtSizeComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shirtSizeComboActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_shirtSizeComboActionPerformed
+
+    private void shirtComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shirtComboActionPerformed
+        shirtSizeCombo.removeAllItems();
+
+        Shirt shirt = (Shirt) shirtCombo.getSelectedItem();
+
+        for (int i = 0; i < shirt.getSizesSize(); i++) {
+            shirtSizeCombo.addItem(shirt.getSizes(i));
+        }
+
+        shirtPriceLabel.setText(shirt.getPrice() + " DKK");
+    }//GEN-LAST:event_shirtComboActionPerformed
+
+    private void addTShirtToBasketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addTShirtToBasketActionPerformed
+        kurv.addItem((Product) tShirtCombo.getSelectedItem());
+        calculateAmount();
+    }//GEN-LAST:event_addTShirtToBasketActionPerformed
+
+    private void addShirtToBasketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addShirtToBasketActionPerformed
+        kurv.addItem((Product) shirtCombo.getSelectedItem());
+        calculateAmount();
+    }//GEN-LAST:event_addShirtToBasketActionPerformed
+
+    private void addPantsToBasketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPantsToBasketActionPerformed
+        kurv.addItem((Product) pantsCombo.getSelectedItem());
+        calculateAmount();
+    }//GEN-LAST:event_addPantsToBasketActionPerformed
 
     /**
      * @param args the command line arguments
@@ -396,28 +589,39 @@ public class GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addPantsToBasket;
+    private javax.swing.JButton addShirtToBasket;
+    private javax.swing.JButton addTShirtToBasket;
     private javax.swing.JButton basketBackButton;
     private javax.swing.JButton basketCheckoutButton;
     private javax.swing.JPanel basketPanel;
     private javax.swing.JLabel headerBeløb;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTabbedPane mainPane;
+    private javax.swing.JComboBox pantsCombo;
+    private javax.swing.JLabel pantsPriceLabel;
+    private javax.swing.JComboBox pantsSizeCombo;
+    private javax.swing.JComboBox shirtCombo;
+    private javax.swing.JLabel shirtPriceLabel;
+    private javax.swing.JComboBox shirtSizeCombo;
     private javax.swing.JComboBox tShirtCombo;
-    private javax.swing.JLabel tShirtPrisLabel;
-    private javax.swing.JComboBox tShirtStørrelseCombo;
-    private javax.swing.JLabel tShirtStørrelseLabel;
+    private javax.swing.JLabel tShirtPriceLabel;
+    private javax.swing.JComboBox tShirtSizeCombo;
     private javax.swing.JPanel topPanel;
     // End of variables declaration//GEN-END:variables
 }

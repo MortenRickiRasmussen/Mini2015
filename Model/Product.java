@@ -1,7 +1,5 @@
 package Model;
 
-import java.util.ArrayList;
-
 /**
  *
  * @author Morten Ricki Rasmussen
@@ -10,8 +8,7 @@ public abstract class Product {
 
     private String name;
     private String color;
-    private double price;
-    private ArrayList sizes;
+    private float price;
 
     //--------------------------------------------------------------------------
     // Accessors
@@ -24,7 +21,7 @@ public abstract class Product {
         return color;
     }
 
-    public double getPrice() {
+    public float getPrice() {
         return price;
     }
 
@@ -39,7 +36,7 @@ public abstract class Product {
         this.color = color;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(float price) {
         this.price = price;
     }
 
