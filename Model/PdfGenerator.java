@@ -111,67 +111,67 @@ public class PdfGenerator {
         contentStream.beginText();
         contentStream.setFont(font, 10);
         contentStream.moveTextPositionByAmount(47, 532);        
-        if (!ydelseNavn[0].equals("null")){
+        if (ydelseNavn[0] != null){
             contentStream.moveTextPositionByAmount(0, -18);
             contentStream.drawString(ydelseNavn[0]);
         }
-        if (!ydelseNavn[1].equals("null")){
+        if (ydelseNavn[1] != null){
             contentStream.moveTextPositionByAmount(0, -18);
             contentStream.drawString(ydelseNavn[1]);
         }
-        if (!ydelseNavn[2].equals("null")){
+        if (ydelseNavn[2] != null){
             contentStream.moveTextPositionByAmount(0, -18);
             contentStream.drawString(ydelseNavn[2]);
         }
-        if (!ydelseNavn[3].equals("null")){
+        if (ydelseNavn[3] != null){
             contentStream.moveTextPositionByAmount(0, -18);
             contentStream.drawString(ydelseNavn[3]);
         }
-        if (!ydelseNavn[4].equals("null")){
+        if (ydelseNavn[4] != null){
             contentStream.moveTextPositionByAmount(0, -18);
             contentStream.drawString(ydelseNavn[4]);
         }
-        if (!ydelseNavn[5].equals("null")){
+        if (ydelseNavn[5] != null){
             contentStream.moveTextPositionByAmount(0, -18);
             contentStream.drawString(ydelseNavn[5]);
         }
-        if (!ydelseNavn[6].equals("null")){
+        if (ydelseNavn[6] != null){
             contentStream.moveTextPositionByAmount(0, -18);
             contentStream.drawString(ydelseNavn[6]);
         }
-        if (!ydelseNavn[7].equals("null")){
+        if (ydelseNavn[7] != null){
             contentStream.moveTextPositionByAmount(0, -18);
             contentStream.drawString(ydelseNavn[7]);
         }
-        if (!ydelseNavn[8].equals("null")){
+        if (ydelseNavn[8] != null){
             contentStream.moveTextPositionByAmount(0, -18);
             contentStream.drawString(ydelseNavn[8]);
         }
-        if (!ydelseNavn[9].equals("null")){
+        if (ydelseNavn[9] != null){
             contentStream.moveTextPositionByAmount(0, -18);
             contentStream.drawString(ydelseNavn[9]);
         }
-        if (!ydelseNavn[10].equals("null")){
+        if (ydelseNavn[10] != null){
             contentStream.moveTextPositionByAmount(0, -18);
             contentStream.drawString(ydelseNavn[10]);
         }
-        if (!ydelseNavn[11].equals("null")){
+        if (ydelseNavn[11] != null){
             contentStream.moveTextPositionByAmount(0, -18);
             contentStream.drawString(ydelseNavn[11]);
         }
-        if (!ydelseNavn[12].equals("null")){
+        if (ydelseNavn[12] != null){
             contentStream.moveTextPositionByAmount(0, -18);
             contentStream.drawString(ydelseNavn[12]);
         }
-        if (!ydelseNavn[13].equals("null")){
+        if (ydelseNavn[13] != null){
             contentStream.moveTextPositionByAmount(0, -18);
             contentStream.drawString(ydelseNavn[13]);
         }
-        if (!ydelseNavn[14].equals("null")){
+        if (ydelseNavn[14] != null){
             contentStream.moveTextPositionByAmount(0, -18);
             contentStream.drawString(ydelseNavn[14]);
         }
-        if (!ydelseNavn[15].equals("null")){
+        if (ydelseNavn[15] != null){
             contentStream.moveTextPositionByAmount(0, -18);
             contentStream.drawString(ydelseNavn[15]);
         }
@@ -181,7 +181,7 @@ public class PdfGenerator {
         contentStream.setFont(font, 10);
         contentStream.moveTextPositionByAmount(547, 532);
         for (int i = 0; i < 16; i++) {
-            if (!ydelsePris[i].equals("null")){
+            if (ydelsePris[i] != null){
                 contentStream.moveTextPositionByAmount(0, -18);
                 if (ydelsePris[i].length() >= 4){
                     float text_width = (font.getStringWidth(ydelsePris[i].substring(0, 1)+"."+ydelsePris[i].substring(1)+",00kr.")/1000.0f)*10;
@@ -203,12 +203,12 @@ public class PdfGenerator {
             contentStream.beginText();
             contentStream.setFont(font, 10);
             contentStream.moveTextPositionByAmount(547, 205);
-            if (moms1.endsWith(".5")){
-                moms1 = moms1.substring(0, (moms1.length()-2))+".50";
-            }
-            if (moms1.endsWith(".0")){
-                moms1 = moms1.substring(0, (moms1.length()-2))+".00";
-            }
+//            if (moms1.endsWith(".5")){
+//                moms1 = moms1.substring(0, (moms1.length()-2))+".50";
+//            }
+//            if (moms1.endsWith(".0")){
+//                moms1 = moms1.substring(0, (moms1.length()-2))+".00";
+//            }
             switch(moms1.length()){
                 case 5:
                     float text_width5 = (font.getStringWidth(moms1.substring(0, 2)+","+moms1.substring(3, 5)+"kr.")/1000.0f)*10;
@@ -242,12 +242,12 @@ public class PdfGenerator {
             contentStream.beginText();
             contentStream.setFont(font, 10);
             contentStream.moveTextPositionByAmount(547, 185);
-            if (total1.endsWith(".5")){
-                total1 = total1.substring(0, (total1.length()-2))+".50";
-            }
-            if (total1.endsWith(".0")){
-                total1 = total1.substring(0, (total1.length()-2))+".00";
-            }
+//            if (total1.endsWith(".5")){
+//                total1 = total1.substring(0, (total1.length()-2))+".50";
+//            }
+//            if (total1.endsWith(".0")){
+//                total1 = total1.substring(0, (total1.length()-2))+".00";
+//            }
             switch(total1.length()){
                 case 5:
                     float text_width5 = (font.getStringWidth(total1.substring(0, 2)+",00kr.")/1000.0f)*10;
@@ -296,7 +296,7 @@ public class PdfGenerator {
         fakForm = PDDocument.load("fakForm.pdf");
         Overlay overlay = new Overlay();
         overlay.overlay(fakForm, faktura);
-        faktura.save(localCopyPath+"/Faktura "+fakNummer+" "+kundeNavn+".pdf");
+        faktura.save("Faktura "+fakNummer+" "+kundeNavn+".pdf");
         fakForm.close();
         faktura.close();
         return true;

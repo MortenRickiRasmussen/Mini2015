@@ -22,6 +22,7 @@ public class PdfHandler {
     public static boolean gemPdf(String name, String streetName, String streetNum, String cityName, String postalCode, String email, String tlf, String cardNumber, String cardType, String cardMonth, String cardYear, String cardCCV, ArrayList<Product> items, ArrayList sizes, float total) throws IOException, COSVisitorException, FileNotFoundException, UnsupportedEncodingException{
         correctCount = 0;
         pdf = new PdfGenerator();
+        pdf.PdfGenerator();
         fakNum = new ReadFile("fakNum.txt");
         fakturaNummer = Integer.parseInt(fakNum.openFile()[0]);
         if (name.contains(" ") && name.length() > 2){
@@ -53,9 +54,10 @@ public class PdfHandler {
         }
         if (correctCount == 9){
             for (int i = 0; i < items.size(); i++) {
-                pdf.setYdelseNavn(items.get(i).toString()+", "+sizes.get(i), i);
+                pdf.setYdelseNavn(items.get(i).getName()+", "+sizes.get(i), i);
                 pdf.setYdelsePris(items.get(i).getPrice()+"", i);
             }
+            System.out.println("test");
             fakNumZeroes = "";
             for (int i = 0; i < (4-((fakturaNummer+"").length())); i++) {
             fakNumZeroes = fakNumZeroes.concat("0");            
