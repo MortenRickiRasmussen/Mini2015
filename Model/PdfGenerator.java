@@ -62,11 +62,11 @@ public class PdfGenerator {
         contentStream.beginText();
         contentStream.setFont(font, 10);
         contentStream.moveTextPositionByAmount(45, 712);
-        contentStream.drawString("Solbakkevej 27, 4700 Næstved");
+        contentStream.drawString("Femøvej 3, 4700 Næstved");
         contentStream.moveTextPositionByAmount(0, -12);
-        contentStream.drawString("Tlf.: 26110343");
+        contentStream.drawString("Tlf.: 50762640");
         contentStream.moveTextPositionByAmount(0, -12);
-        contentStream.drawString("CVR-nr.: 31313481");
+        contentStream.drawString("CVR-nr.: 31661471");
         contentStream.setFont(fontBold, 10);        
         contentStream.moveTextPositionByAmount(0, -48);
         contentStream.drawString("Faktureres til:");
