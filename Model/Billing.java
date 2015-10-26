@@ -22,6 +22,9 @@ public class Billing {
         this.cardType = cardType;
         this.ccv = ccv;
     }
+    //--------------------------------------------------------------------------
+    // Accessors
+    //--------------------------------------------------------------------------
     
     public long getCardNumber() {
         return cardNumber;
@@ -43,6 +46,10 @@ public class Billing {
         return ccv;
     }
     
+    //--------------------------------------------------------------------------
+    // Mutators
+    //--------------------------------------------------------------------------
+    
     public void setCardNumber(long cardNumber) {
         this.cardNumber = cardNumber;
     }
@@ -63,6 +70,9 @@ public class Billing {
         this.ccv = ccv;
     }
     
+    //--------------------------------------------------------------------------
+    // Metode til kun at vise de sidste fire cifre af kortnummeret
+    //--------------------------------------------------------------------------
     public int lastFourDigits() {
         int lastDigits;
         
@@ -71,6 +81,10 @@ public class Billing {
         return lastDigits;
     }
     
+    //--------------------------------------------------------------------------
+    //  betalingsoplysninger til brugeren
+    //--------------------------------------------------------------------------
+    
     public String getBillinInfoReciept() {
         String billingInfo;
         billingInfo = "Cardtype: " + cardType;
@@ -78,6 +92,10 @@ public class Billing {
         
         return billingInfo;
     }
+    
+    //--------------------------------------------------------------------------
+    // Tilføjer et produkt til Admin
+    //--------------------------------------------------------------------------
     
     public String getBillingInfoBackEnd() {
         String billingInfo;

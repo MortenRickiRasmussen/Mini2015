@@ -16,10 +16,16 @@ public class Basket {
         items = new ArrayList();
     }
 
+    //--------------------------------------------------------------------------
+    // Tilføjer et produkt til kurven
+    //--------------------------------------------------------------------------
     public void addItem(Product item) {
         items.add(item);
     }
 
+    //--------------------------------------------------------------------------
+    // Udregner den samlee pris
+    //--------------------------------------------------------------------------
     public float calculateTotalAmount() {
         float totalAmount = 0;
 
@@ -32,6 +38,10 @@ public class Basket {
         }
 
         return totalAmount;
+    }
+    
+    public ArrayList returnBasket() {
+        return items;
     }
 
 }
