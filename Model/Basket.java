@@ -15,6 +15,7 @@ public class Basket {
     public Basket() {
         this.name = "Basket";
         items = new ArrayList();
+        selectedSize = new ArrayList();
     }
 
     //--------------------------------------------------------------------------
@@ -22,7 +23,7 @@ public class Basket {
     //--------------------------------------------------------------------------
     public void addItem(Product item, String size) {
         items.add(item);
-        selectedSize.add(size);
+        selectedSize.add("Størrlese" + size);
     }
 
     //--------------------------------------------------------------------------
