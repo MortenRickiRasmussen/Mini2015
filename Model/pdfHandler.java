@@ -10,10 +10,9 @@ import java.util.ArrayList;
 public class pdfHandler {
     private static int correctCount;
     private static PdfGenerator pdf;
-    private static float moms;
-    private static float total;
+    private static Basket 
     
-    public static boolean gemPdf(String name, String streetName, String streetNum, String cityName, String postalCode, String email, String tlf, String cardNumber, String cardType, String cardMonth, String cardYear, String cardCCV, ArrayList<Product> items, ArrayList sizes){
+    public static boolean gemPdf(String name, String streetName, String streetNum, String cityName, String postalCode, String email, String tlf, String cardNumber, String cardType, String cardMonth, String cardYear, String cardCCV, ArrayList<Product> items, ArrayList sizes, float total){
         correctCount = 0;
         pdf = new PdfGenerator();
         if (name.contains(" ") && name.length() > 2){
@@ -22,7 +21,7 @@ public class pdfHandler {
         if (!streetName.isEmpty()){
             correctCount++;
         }
-        if (!streetNum.isEmpty()){
+        if (Integer.parseInt(streetNum) > 0){
             correctCount++;
         }
         if (!cityName.isEmpty()){
@@ -53,6 +52,12 @@ public class pdfHandler {
             pdf.setEmail(email);
             pdf.setFakNummer(fakNum);
             pdf.setKundeNavn(name);
+            pdf.setPostNummer(postalCode);
+            pdf.setTelefonNr(tlf);
+            pdf.setVejNavn(streetName);
+            pdf.setVejNr(Integer.parseInt(streetNum));
+            pdf.setTotal(total);
+            pdf.setMoms(total*0.2f);
             return true;
         }else{
             return false;
