@@ -19,6 +19,9 @@ public class Pants extends Product {
     private boolean size38;
     private ArrayList sizes;
 
+    //--------------------------------------------------------------------------
+    // Constructor som laver et objekt og fylder størrelser i ArrayListen sizes
+    //--------------------------------------------------------------------------
     public Pants(String name, String color, float price, boolean size28, boolean size29, boolean size30, boolean size31, boolean size32, boolean size33, boolean size34, boolean size36, boolean size38) {
         super.setName(name);
         super.setColor(color);
@@ -62,6 +65,9 @@ public class Pants extends Product {
         }
     }
 
+    //--------------------------------------------------------------------------
+    // metoder til at beregner ArrayList størrelser og return.
+    //--------------------------------------------------------------------------
     public int getSizesSize() {
         return sizes.size();
     }
