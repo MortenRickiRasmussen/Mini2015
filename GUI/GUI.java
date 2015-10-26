@@ -118,6 +118,7 @@ public class GUI extends javax.swing.JFrame {
         basketPanel = new javax.swing.JPanel();
         basketCheckoutButton = new javax.swing.JButton();
         basketBackButton = new javax.swing.JButton();
+        testPDFButton = new javax.swing.JButton();
         checkoutPanel = new javax.swing.JPanel();
         jLabel25 = new javax.swing.JLabel();
         payButton = new javax.swing.JButton();
@@ -444,6 +445,13 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
+        testPDFButton.setText("testPDF");
+        testPDFButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                testPDFButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout basketPanelLayout = new javax.swing.GroupLayout(basketPanel);
         basketPanel.setLayout(basketPanelLayout);
         basketPanelLayout.setHorizontalGroup(
@@ -454,13 +462,19 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(basketCheckoutButton, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(basketBackButton, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
+            .addGroup(basketPanelLayout.createSequentialGroup()
+                .addGap(169, 169, 169)
+                .addComponent(testPDFButton)
+                .addContainerGap(439, Short.MAX_VALUE))
         );
         basketPanelLayout.setVerticalGroup(
             basketPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, basketPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(basketBackButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 423, Short.MAX_VALUE)
+                .addGap(220, 220, 220)
+                .addComponent(testPDFButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 236, Short.MAX_VALUE)
                 .addComponent(basketCheckoutButton)
                 .addContainerGap())
         );
@@ -771,6 +785,10 @@ public class GUI extends javax.swing.JFrame {
         checkoutPanel.setVisible(true);
     }//GEN-LAST:event_basketCheckoutButtonActionPerformed
 
+    private void testPDFButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testPDFButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_testPDFButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -868,6 +886,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel tShirtPriceLabel;
     private javax.swing.JComboBox tShirtSizeCombo;
     private javax.swing.JTextField telephoneField;
+    private javax.swing.JButton testPDFButton;
     private javax.swing.JPanel topPanel;
     private javax.swing.JComboBox yearField;
     private javax.swing.JTextField zipCodeField;

@@ -293,11 +293,7 @@ public class PdfGenerator {
                 
         contentStream.close();
         PDDocument fakForm;
-        if (moms != 0.0){
-            fakForm = PDDocument.load("Faktura formular.pdf");
-        }else{
-            fakForm = PDDocument.load("Faktura formularudenmoms.pdf");
-        }
+        fakForm = PDDocument.load("fakForm.pdf");
         Overlay overlay = new Overlay();
         overlay.overlay(fakForm, faktura);
         faktura.save(localCopyPath+"/Faktura "+fakNummer+" "+kundeNavn+".pdf");
