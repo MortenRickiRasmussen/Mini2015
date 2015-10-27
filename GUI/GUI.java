@@ -793,7 +793,13 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_basketCheckoutButtonActionPerformed
 
     private void testPDFButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testPDFButtonActionPerformed
-        PdfHandler.gemPdf("Jakob Ferdinandsen", "Solbakkevej", "27", "Næstved", "4700", "mollyjakob@gmail.com", "53650549", "1234567890111111", "Visa", "05", "1967", "555", kurv.returnBasket(), kurv.returnSelectedSize(), kurv.calculateTotalAmount());
+        try {
+            PdfHandler.gemPdf("Jakob Ferdinandsen", "Solbakkevej", "27", "Næstved", "4700", "mollyjakob@gmail.com", "53650549", "1234567890111111", "Visa", "05", "1967", "555", kurv.returnBasket(), kurv.returnSelectedSize(), Float.parseFloat(kurv.calculateTotalAmount()));
+        } catch (IOException ex) {
+            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (COSVisitorException ex) {
+            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_testPDFButtonActionPerformed
 
     /**
