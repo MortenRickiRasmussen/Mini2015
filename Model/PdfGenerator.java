@@ -196,12 +196,6 @@ public class PdfGenerator {
             contentStream.beginText();
             contentStream.setFont(font, 10);
             contentStream.moveTextPositionByAmount(547, 205);
-//            if (moms1.endsWith(".5")){
-//                moms1 = moms1.substring(0, (moms1.length()-2))+".50";
-//            }
-//            if (moms1.endsWith(".0")){
-//                moms1 = moms1.substring(0, (moms1.length()-2))+".00";
-//            }
             switch(moms1.length()){
                 case 5:
                     float text_width5 = (font.getStringWidth(moms1.substring(0, 2)+","+moms1.substring(3, 5)+"kr.")/1000.0f)*10;
@@ -235,19 +229,7 @@ public class PdfGenerator {
             contentStream.beginText();
             contentStream.setFont(font, 10);
             contentStream.moveTextPositionByAmount(547, 185);
-//            if (total1.endsWith(".5")){
-//                total1 = total1.substring(0, (total1.length()-2))+".50";
-//            }
-//            if (total1.endsWith(".0")){
-//                total1 = total1.substring(0, (total1.length()-2))+".00";
-//            }
             switch(total1.length()){
-                case 5:
-                    float text_width5 = (font.getStringWidth(total1.substring(0, 2)+",00kr.")/1000.0f)*10;
-                    contentStream.moveTextPositionByAmount(-text_width5, 0);
-                    contentStream.drawString(total1.substring(0, 2)+",00kr.");
-                    contentStream.moveTextPositionByAmount(text_width5, 0);
-                    break;
                 case 6:
                     float text_width6 = (font.getStringWidth(total1.substring(0, 3)+","+total1.substring(4, 6)+"kr.")/1000.0f)*10;
                     contentStream.moveTextPositionByAmount(-text_width6, 0);
