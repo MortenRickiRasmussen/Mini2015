@@ -19,7 +19,9 @@ public class PdfHandler {
     private static int fakturaNummer;
     private static String fakNumZeroes;
     
-    public static boolean gemPdf(String name, String streetName, String streetNum, String cityName, String postalCode, String email, String tlf, String cardNumber, String cardType, String cardMonth, String cardYear, String cardCCV, ArrayList<Product> items, ArrayList sizes, float total) throws IOException, COSVisitorException, FileNotFoundException, UnsupportedEncodingException{
+    public static boolean gemPdf(String name, String streetName, String streetNum, String cityName, String postalCode, String email, String tlf, String cardNumber, String cardType, String cardMonth, String cardYear, String cardCCV, ArrayList<Product> items, ArrayList sizes, String total) throws IOException, COSVisitorException, FileNotFoundException, UnsupportedEncodingException{
+        Float total1 = Float.parseFloat(total.replace(",", "."));
+        Float moms = Float.parseFloat(String.format("%.2f", total1*0.2f).replace(",", "."));
         correctCount = 0;
         pdf = new PdfGenerator();
         pdf.PdfGenerator();
@@ -58,7 +60,7 @@ public class PdfHandler {
                 pdf.setYdelsePris(items.get(i).getPrice()+"", i);
             }
             fakNumZeroes = "";
-            for (int i = 0; i < (4-((fakturaNummer+"").length())); i++) {
+            for (int i = 0; i < (5-((fakturaNummer+"").length())); i++) {
             fakNumZeroes = fakNumZeroes.concat("0");            
             }
             pdf.setBy(cityName);
@@ -69,8 +71,9 @@ public class PdfHandler {
             pdf.setTelefonNr(tlf);
             pdf.setVejNavn(streetName);
             pdf.setVejNr(Integer.parseInt(streetNum));
-            pdf.setTotal(total);
-            pdf.setMoms(total*0.2f);
+            pdf.setTotal(total1);
+            System.out.println(moms);
+            pdf.setMoms(moms);
             if (pdf.generatePDF()){
                 fakturaNummer++;
                 PrintWriter writer = null;
