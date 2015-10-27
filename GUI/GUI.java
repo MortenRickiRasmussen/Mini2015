@@ -88,7 +88,11 @@ public class GUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        billing1 = new Model.Billing();
+        errorCodeFrame = new javax.swing.JFrame();
+        jPanel4 = new javax.swing.JPanel();
+        errorCodeLabel3 = new javax.swing.JLabel();
+        errorCodeLabel1 = new javax.swing.JLabel();
+        errorCodeLabel2 = new javax.swing.JLabel();
         topPanel = new javax.swing.JPanel();
         headerBeløb = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -96,14 +100,6 @@ public class GUI extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLayeredPane1 = new javax.swing.JLayeredPane();
         mainPane = new javax.swing.JTabbedPane();
-        jPanel2 = new javax.swing.JPanel();
-        tShirtCombo = new javax.swing.JComboBox();
-        jLabel4 = new javax.swing.JLabel();
-        tShirtSizeCombo = new javax.swing.JComboBox();
-        jLabel7 = new javax.swing.JLabel();
-        addTShirtToBasket = new javax.swing.JButton();
-        jLabel8 = new javax.swing.JLabel();
-        tShirtPriceLabel = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         shirtSizeCombo = new javax.swing.JComboBox();
         jLabel11 = new javax.swing.JLabel();
@@ -120,6 +116,14 @@ public class GUI extends javax.swing.JFrame {
         pantsPriceLabel = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         addPantsToBasket = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        tShirtCombo = new javax.swing.JComboBox();
+        jLabel4 = new javax.swing.JLabel();
+        tShirtSizeCombo = new javax.swing.JComboBox();
+        jLabel7 = new javax.swing.JLabel();
+        addTShirtToBasket = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        tShirtPriceLabel = new javax.swing.JLabel();
         basketPanel = new javax.swing.JPanel();
         basketCheckoutButton = new javax.swing.JButton();
         basketBackButton = new javax.swing.JButton();
@@ -152,6 +156,53 @@ public class GUI extends javax.swing.JFrame {
         jLabel24 = new javax.swing.JLabel();
         cardNumberField = new javax.swing.JTextField();
         streetNumField = new javax.swing.JTextField();
+
+        errorCodeLabel3.setText("Label1");
+        errorCodeLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        errorCodeLabel1.setText("Label2");
+        errorCodeLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        errorCodeLabel2.setText("Label3");
+        errorCodeLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        errorCodeLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(errorCodeLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(errorCodeLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(errorCodeLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addComponent(errorCodeLabel3)
+                .addGap(58, 58, 58)
+                .addComponent(errorCodeLabel1)
+                .addGap(50, 50, 50)
+                .addComponent(errorCodeLabel2)
+                .addContainerGap(71, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout errorCodeFrameLayout = new javax.swing.GroupLayout(errorCodeFrame.getContentPane());
+        errorCodeFrame.getContentPane().setLayout(errorCodeFrameLayout);
+        errorCodeFrameLayout.setHorizontalGroup(
+            errorCodeFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        errorCodeFrameLayout.setVerticalGroup(
+            errorCodeFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, errorCodeFrameLayout.createSequentialGroup()
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -203,83 +254,6 @@ public class GUI extends javax.swing.JFrame {
         );
 
         mainPane.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        tShirtCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
-        tShirtCombo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tShirtComboActionPerformed(evt);
-            }
-        });
-
-        jLabel4.setText("Vælg Produkt");
-
-        tShirtSizeCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
-        tShirtSizeCombo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tShirtSizeComboActionPerformed(evt);
-            }
-        });
-
-        jLabel7.setText("Vælg Størrelse");
-
-        addTShirtToBasket.setText("Læg i Kurv");
-        addTShirtToBasket.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addTShirtToBasketActionPerformed(evt);
-            }
-        });
-
-        jLabel8.setText("Pris:");
-
-        tShirtPriceLabel.setText("0,00 ");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(245, 245, 245))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(tShirtCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(86, 86, 86)))
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tShirtPriceLabel)
-                            .addComponent(jLabel8)))
-                    .addComponent(tShirtSizeCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(329, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(addTShirtToBasket)
-                .addContainerGap())
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel8))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tShirtCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tShirtPriceLabel))
-                .addGap(70, 70, 70)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tShirtSizeCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 254, Short.MAX_VALUE)
-                .addComponent(addTShirtToBasket)
-                .addContainerGap())
-        );
-
-        mainPane.addTab("T-shirts", jPanel2);
 
         shirtSizeCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
         shirtSizeCombo.addActionListener(new java.awt.event.ActionListener() {
@@ -434,6 +408,84 @@ public class GUI extends javax.swing.JFrame {
         );
 
         mainPane.addTab("Bukser", jPanel1);
+
+        tShirtCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
+        tShirtCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tShirtComboActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setText("Vælg Produkt");
+
+        tShirtSizeCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
+        tShirtSizeCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tShirtSizeComboActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setText("Vælg Størrelse");
+
+        addTShirtToBasket.setText("Læg i Kurv");
+        addTShirtToBasket.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addTShirtToBasketActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setText("Pris:");
+
+        tShirtPriceLabel.setText("0,00 ");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addGap(245, 245, 245))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(tShirtCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(86, 86, 86)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tShirtPriceLabel)
+                            .addComponent(jLabel8)))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel7)
+                        .addComponent(tShirtSizeCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(335, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(addTShirtToBasket)
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel8))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tShirtCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tShirtPriceLabel))
+                .addGap(70, 70, 70)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tShirtSizeCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 310, Short.MAX_VALUE)
+                .addComponent(addTShirtToBasket)
+                .addContainerGap())
+        );
+
+        mainPane.addTab("T-shirts", jPanel2);
 
         basketPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -636,7 +688,7 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(monthCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(yearCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ccvField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
                 .addComponent(payButton)
                 .addContainerGap())
         );
@@ -647,7 +699,7 @@ public class GUI extends javax.swing.JFrame {
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jLayeredPane1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(mainPane, javax.swing.GroupLayout.DEFAULT_SIZE, 688, Short.MAX_VALUE)
+                .addComponent(mainPane)
                 .addContainerGap())
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
@@ -799,12 +851,27 @@ public class GUI extends javax.swing.JFrame {
         String ccv = ccvField.getText();
         
         try {
-            PdfHandler.gemPdf(name, street, streetNum, city, zipCode, eMail, telephone, cardNumber, cardType, month, year, ccv, kurv.returnBasket(), kurv.returnSelectedSize(), kurv.calculateTotalAmount());
+            //PdfHandler.gemPdf(name, street, streetNum, city, zipCode, eMail, telephone, cardNumber, cardType, month, year, ccv, kurv.returnBasket(), kurv.returnSelectedSize(), kurv.calculateTotalAmount());
+            PdfHandler.gemPdf("morten ", "sdahsjdj", "54", "hasdj", "4578", "jasdkl@jsd.dk", "45781547", "4578547854785478", "Visa", "05", "1997", "548", kurv.returnBasket(), kurv.returnSelectedSize(), kurv.calculateTotalAmount());
         } catch (IOException ex) {
-            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+            errorCodeFrame.pack();
+            errorCodeFrame.setVisible(true);
+            errorCodeLabel1.setText("Den valgte sti blev ikke fundet.");
+            errorCodeLabel2.setText("Er der oprettet forbindelse til serveren?");
+            errorCodeLabel3.setText("Fejlkode: "+ex.getMessage());
         } catch (COSVisitorException ex) {
-            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            errorCodeFrame.pack();
+            errorCodeFrame.setVisible(true);
+            errorCodeLabel1.setText("Den valgte sti blev ikke fundet.");
+            errorCodeLabel2.setText("Er der oprettet forbindelse til serveren?");
+            errorCodeLabel3.setText("Fejlkode: "+ex.getMessage());
+        } /*catch (Exception ex){
+            errorCodeFrame.pack();
+            errorCodeFrame.setVisible(true);
+            errorCodeLabel1.setText("Uventet fejl");
+            errorCodeLabel2.setText("");
+            errorCodeLabel3.setText("Fejlkode: "+ex.getMessage());
+        }*/
     }//GEN-LAST:event_payButtonActionPerformed
 
     /**
@@ -849,13 +916,16 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton basketBackButton;
     private javax.swing.JButton basketCheckoutButton;
     private javax.swing.JPanel basketPanel;
-    private Model.Billing billing1;
     private javax.swing.JTextField cardNumberField;
     private javax.swing.JComboBox cardTypeCombo;
     private javax.swing.JTextField ccvField;
     private javax.swing.JPanel checkoutPanel;
     private javax.swing.JTextField cityField;
     private javax.swing.JTextField eMailField;
+    private javax.swing.JFrame errorCodeFrame;
+    private javax.swing.JLabel errorCodeLabel1;
+    private javax.swing.JLabel errorCodeLabel2;
+    private javax.swing.JLabel errorCodeLabel3;
     private javax.swing.JLabel headerBeløb;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
@@ -887,6 +957,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTabbedPane mainPane;
     private javax.swing.JComboBox monthCombo;
