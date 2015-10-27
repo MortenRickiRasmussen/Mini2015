@@ -183,17 +183,10 @@ public class PdfGenerator {
         for (int i = 0; i < 16; i++) {
             if (ydelsePris[i] != null){
                 contentStream.moveTextPositionByAmount(0, -18);
-                if (ydelsePris[i].length() >= 4){
-                    float text_width = (font.getStringWidth(ydelsePris[i].substring(0, 1)+"."+ydelsePris[i].substring(1)+",00kr.")/1000.0f)*10;
-                    contentStream.moveTextPositionByAmount(-text_width, 0);
-                    contentStream.drawString(ydelsePris[i].substring(0, 1)+"."+ydelsePris[i].substring(1)+",00kr.");
-                    contentStream.moveTextPositionByAmount(text_width, 0);
-                }else{
-                    float text_width = (font.getStringWidth(ydelsePris[i]+",00kr.")/1000.0f)*10;
-                    contentStream.moveTextPositionByAmount(-text_width, 0);
-                    contentStream.drawString(ydelsePris[i]+",00kr.");
-                    contentStream.moveTextPositionByAmount(text_width, 0);
-                }
+                float text_width6 = (font.getStringWidth(ydelsePris[i].substring(0, 3)+","+ydelsePris[i].substring(4, 6)+"kr.")/1000.0f)*10;
+                contentStream.moveTextPositionByAmount(-text_width6, 0);
+                contentStream.drawString(ydelsePris[i].substring(0, 3)+","+ydelsePris[i].substring(4, 6)+"kr.");
+                contentStream.moveTextPositionByAmount(text_width6, 0);
             }   
         }
         contentStream.endText();
