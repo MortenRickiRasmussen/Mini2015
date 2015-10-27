@@ -23,7 +23,7 @@ public class Basket {
     //--------------------------------------------------------------------------
     public void addItem(Product item, String size) {
         items.add(item);
-        selectedSize.add("Størrlese" + size);
+        selectedSize.add("Størrlese " + size);
     }
 
     //--------------------------------------------------------------------------
