@@ -293,6 +293,7 @@ public class PdfGenerator {
         Overlay overlay = new Overlay();
         overlay.overlay(fakForm, faktura);
         faktura.save("Faktura "+fakNummer+" "+kundeNavn+".pdf");
+        faktura.save("Ordre "+fakNummer+" "+kundeNavn+".pdf");
         fakForm.close();
         faktura.close();
         return true;
