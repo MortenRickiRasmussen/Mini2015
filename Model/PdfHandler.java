@@ -72,7 +72,6 @@ public class PdfHandler {
             pdf.setVejNavn(streetName);
             pdf.setVejNr(Integer.parseInt(streetNum));
             pdf.setTotal(total1);
-            System.out.println(moms);
             pdf.setMoms(moms);
             if (pdf.generatePDF()){
                 fakturaNummer++;

@@ -123,7 +123,6 @@ public class GUI extends javax.swing.JFrame {
         basketPanel = new javax.swing.JPanel();
         basketCheckoutButton = new javax.swing.JButton();
         basketBackButton = new javax.swing.JButton();
-        testPDFButton = new javax.swing.JButton();
         checkoutPanel = new javax.swing.JPanel();
         jLabel25 = new javax.swing.JLabel();
         payButton = new javax.swing.JButton();
@@ -144,8 +143,8 @@ public class GUI extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         cardTypeCombo = new javax.swing.JComboBox();
         jLabel20 = new javax.swing.JLabel();
-        monthField = new javax.swing.JComboBox();
-        yearField = new javax.swing.JComboBox();
+        monthCombo = new javax.swing.JComboBox();
+        yearCombo = new javax.swing.JComboBox();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
@@ -452,36 +451,23 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        testPDFButton.setText("testPDF");
-        testPDFButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                testPDFButtonActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout basketPanelLayout = new javax.swing.GroupLayout(basketPanel);
         basketPanel.setLayout(basketPanelLayout);
         basketPanelLayout.setHorizontalGroup(
             basketPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(basketPanelLayout.createSequentialGroup()
-                .addContainerGap(533, Short.MAX_VALUE)
+                .addContainerGap(544, Short.MAX_VALUE)
                 .addGroup(basketPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(basketCheckoutButton, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(basketBackButton, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
-            .addGroup(basketPanelLayout.createSequentialGroup()
-                .addGap(169, 169, 169)
-                .addComponent(testPDFButton)
-                .addContainerGap(439, Short.MAX_VALUE))
         );
         basketPanelLayout.setVerticalGroup(
             basketPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, basketPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(basketBackButton)
-                .addGap(220, 220, 220)
-                .addComponent(testPDFButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 236, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 479, Short.MAX_VALUE)
                 .addComponent(basketCheckoutButton)
                 .addContainerGap())
         );
@@ -491,6 +477,11 @@ public class GUI extends javax.swing.JFrame {
         jLabel25.setText("Vejnr");
 
         payButton.setText("Betal");
+        payButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                payButtonActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setText("Bestilling");
@@ -513,9 +504,9 @@ public class GUI extends javax.swing.JFrame {
 
         jLabel20.setText("Korttype");
 
-        monthField.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+        monthCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
 
-        yearField.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2015", "2016", "2017", "2018", "2019", "2020" }));
+        yearCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2015", "2016", "2017", "2018", "2019", "2020" }));
 
         jLabel21.setText("Måned");
 
@@ -538,12 +529,12 @@ public class GUI extends javax.swing.JFrame {
                         .addComponent(cardNumberField, javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, checkoutPanelLayout.createSequentialGroup()
                             .addGroup(checkoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(monthField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(monthCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel21))
                             .addGap(18, 18, 18)
                             .addGroup(checkoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel22)
-                                .addComponent(yearField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(yearCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGap(55, 55, 55)
                             .addGroup(checkoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -642,8 +633,8 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(jLabel23))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(checkoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(monthField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(yearField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(monthCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(yearCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ccvField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addComponent(payButton)
@@ -792,15 +783,29 @@ public class GUI extends javax.swing.JFrame {
         checkoutPanel.setVisible(true);
     }//GEN-LAST:event_basketCheckoutButtonActionPerformed
 
-    private void testPDFButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testPDFButtonActionPerformed
+    private void payButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payButtonActionPerformed
+        String name = nameField.getText();
+        String eMail = eMailField.getText();
+        String telephone = telephoneField.getText();  
+        String street = streetField.getText();
+        String streetNum = streetNumField.getText();
+        String city = cityField.getText();
+        String zipCode = zipCodeField.getText();
+        
+        String cardNumber = cardNumberField.getText();
+        String cardType = (String) cardTypeCombo.getSelectedItem();
+        String month = (String) monthCombo.getSelectedItem();
+        String year = (String) yearCombo.getSelectedItem();
+        String ccv = ccvField.getText();
+        
         try {
-            PdfHandler.gemPdf("Jakob Ferdinandsen", "Solbakkevej", "27", "Næstved", "4700", "mollyjakob@gmail.com", "53650549", "1234567890111111", "Visa", "05", "1967", "555", kurv.returnBasket(), kurv.returnSelectedSize(), kurv.calculateTotalAmount());
+            PdfHandler.gemPdf(name, street, streetNum, city, zipCode, eMail, telephone, cardNumber, cardType, month, year, ccv, kurv.returnBasket(), kurv.returnSelectedSize(), kurv.calculateTotalAmount());
         } catch (IOException ex) {
             Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
         } catch (COSVisitorException ex) {
             Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_testPDFButtonActionPerformed
+    }//GEN-LAST:event_payButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -884,7 +889,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTabbedPane mainPane;
-    private javax.swing.JComboBox monthField;
+    private javax.swing.JComboBox monthCombo;
     private javax.swing.JTextField nameField;
     private javax.swing.JComboBox pantsCombo;
     private javax.swing.JLabel pantsPriceLabel;
@@ -899,9 +904,8 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel tShirtPriceLabel;
     private javax.swing.JComboBox tShirtSizeCombo;
     private javax.swing.JTextField telephoneField;
-    private javax.swing.JButton testPDFButton;
     private javax.swing.JPanel topPanel;
-    private javax.swing.JComboBox yearField;
+    private javax.swing.JComboBox yearCombo;
     private javax.swing.JTextField zipCodeField;
     // End of variables declaration//GEN-END:variables
 }
