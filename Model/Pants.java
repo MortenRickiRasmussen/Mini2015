@@ -72,8 +72,8 @@ public class Pants extends Product {
         return sizes.size();
     }
 
-    public String getSizes(int i) {
-        return (String) sizes.get(i).toString();
+    public ArrayList getSizes() {
+        return sizes;
     }
 
 }

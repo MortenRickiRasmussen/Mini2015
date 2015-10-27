@@ -8,47 +8,45 @@ package GUI;
 import Model.Basket;
 import Model.Product;
 import java.util.ArrayList;
+import javax.swing.JLabel;
 
 /**
  *
  * @author Morten Ricki Rasmussen
  */
 public class ProductShow extends javax.swing.JPanel {
+
     private String productName;
     private String color;
     private ArrayList sizes;
     private String price;
     private ArrayList products;
     private Basket basket;
-    
+    private JLabel headerPrice;
 
     /**
      * Creates new form ProductShow
      */
-    public ProductShow(String productName, String color, ArrayList sizes, String price, ArrayList product, Basket basket) {
+    public ProductShow(String productName, String color, ArrayList sizes, String price, ArrayList product, Basket basket, JLabel headerPrice) {
         this.productName = productName;
         this.color = color;
         this.sizes = sizes;
         this.price = price;
-        this.products = products;
+        this.products = product;
         this.basket = basket;
+        this.headerPrice = headerPrice;
         initComponents();
         fillData(productName, color, sizes, price);
     }
-    
+
     public void fillData(String productName, String color, ArrayList sizes, String price) {
         productNameLabel.setText(productName);
         colorLabel.setText(color);
         for (int i = 0; i < sizes.size(); i++) {
-            sizeComboBox.addItem(sizes.get(i));            
+            sizeComboBox.addItem(sizes.get(i));
         }
         priceLabel.setText(price + " DKK");
     }
-    
-    private void addToBasket(ArrayList<Product> products, Basket basket) {
-
-    }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -67,14 +65,12 @@ public class ProductShow extends javax.swing.JPanel {
         jSeparator1 = new javax.swing.JSeparator();
         jButton1 = new javax.swing.JButton();
 
-        setMaximumSize(new java.awt.Dimension(660, 90));
-        setMinimumSize(new java.awt.Dimension(660, 90));
-        setPreferredSize(new java.awt.Dimension(660, 90));
+        setMaximumSize(new java.awt.Dimension(660, 120));
+        setMinimumSize(new java.awt.Dimension(660, 120));
+        setPreferredSize(new java.awt.Dimension(660, 120));
 
         productNameLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         productNameLabel.setText("Hvid smoking Skjorte");
-
-        sizeComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
 
         priceLabel.setText("0000DK");
 
@@ -96,11 +92,14 @@ public class ProductShow extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
+                        .addContainerGap()
+                        .addComponent(jSeparator1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(colorLabel)
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addGap(569, 569, 569))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(productNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(42, 42, 42)
@@ -108,19 +107,15 @@ public class ProductShow extends javax.swing.JPanel {
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(priceLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 57, Short.MAX_VALUE)
+                                .addComponent(priceLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
                                 .addGap(36, 36, 36)
-                                .addComponent(jButton1)
-                                .addGap(29, 29, 29))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jSeparator1)))
+                                .addComponent(jButton1)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(34, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(productNameLabel)
                     .addComponent(sizeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -129,7 +124,7 @@ public class ProductShow extends javax.swing.JPanel {
                     .addComponent(jButton1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(colorLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addGap(30, 30, 30)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -142,10 +137,11 @@ public class ProductShow extends javax.swing.JPanel {
                 index = i;
             }
         }
-        basket.addItem((Product) products.get(index), (String) sizeComboBox.getSelectedItem());
+        
+        String selectedSize = (String) sizeComboBox.getSelectedItem();
+        basket.addItem((Product) products.get(index), selectedSize);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel colorLabel;
