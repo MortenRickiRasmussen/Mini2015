@@ -57,7 +57,6 @@ public class PdfHandler {
                 pdf.setYdelseNavn(items.get(i).getName()+", "+sizes.get(i), i);
                 pdf.setYdelsePris(items.get(i).getPrice()+"", i);
             }
-            System.out.println("test");
             fakNumZeroes = "";
             for (int i = 0; i < (4-((fakturaNummer+"").length())); i++) {
             fakNumZeroes = fakNumZeroes.concat("0");            
