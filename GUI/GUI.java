@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JPanel;
 import org.apache.pdfbox.exceptions.COSVisitorException;
 
 /**
@@ -28,6 +29,8 @@ public class GUI extends javax.swing.JFrame {
     private ArrayList<TShirt> tShirts;
     private ArrayList<Pants> pants;
     private ArrayList<Shirt> shirts;
+    private ArrayList<Shirt> tShirtPanels;
+    
     private Basket kurv;
 
     /**
@@ -62,6 +65,8 @@ public class GUI extends javax.swing.JFrame {
         tShirts = new ArrayList<>();
         pants = new ArrayList<>();
         shirts = new ArrayList<>();
+        
+        tShirtPanels = new ArrayList<>();
 
         DBHandler.loadArrayLists(tShirts, pants, shirts);
 
@@ -77,6 +82,13 @@ public class GUI extends javax.swing.JFrame {
         for (int i = 0; i < pants.size(); i++) {
             pantsCombo.addItem(pants.get(i));   
         }
+        
+        for (int i = 0; i < tShirts.size(); i++) {
+           JPanel jp = new ProductShow(tShirts.get(i).getName(), tShirts.get(i).getColor(), tShirts.get(i).getSizes(), Float.toString(tShirts.get(i).getPrice()), tShirts, kurv);
+           jp.setVisible(true);
+           jPanel6.add(jp);
+        }
+        
     }
 
     /**
@@ -124,6 +136,9 @@ public class GUI extends javax.swing.JFrame {
         addTShirtToBasket = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         tShirtPriceLabel = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jPanel6 = new javax.swing.JPanel();
         basketPanel = new javax.swing.JPanel();
         basketCheckoutButton = new javax.swing.JButton();
         basketBackButton = new javax.swing.JButton();
@@ -205,6 +220,9 @@ public class GUI extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(750, 625));
+        setMinimumSize(new java.awt.Dimension(750, 625));
+        setPreferredSize(new java.awt.Dimension(750, 625));
 
         topPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -456,9 +474,8 @@ public class GUI extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(tShirtPriceLabel)
                             .addComponent(jLabel8)))
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel7)
-                        .addComponent(tShirtSizeCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel7)
+                    .addComponent(tShirtSizeCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(335, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -486,6 +503,24 @@ public class GUI extends javax.swing.JFrame {
         );
 
         mainPane.addTab("T-shirts", jPanel2);
+
+        jPanel6.setLayout(new javax.swing.BoxLayout(jPanel6, javax.swing.BoxLayout.Y_AXIS));
+        jScrollPane1.setViewportView(jPanel6);
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 669, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 519, Short.MAX_VALUE)
+        );
+
+        mainPane.addTab("tab4", jPanel5);
 
         basketPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -770,9 +805,9 @@ public class GUI extends javax.swing.JFrame {
 
         TShirt tshirt = (TShirt) tShirtCombo.getSelectedItem();
 
-        for (int i = 0; i < tshirt.getSizesSize(); i++) {
+        /*for (int i = 0; i < tshirt.getSizesSize(); i++) {
             tShirtSizeCombo.addItem(tshirt.getSizes(i));
-        }
+        }*/
 
         tShirtPriceLabel.setText(tshirt.getPrice() + " DKK");
     }//GEN-LAST:event_tShirtComboActionPerformed
@@ -958,6 +993,9 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTabbedPane mainPane;
     private javax.swing.JComboBox monthCombo;
