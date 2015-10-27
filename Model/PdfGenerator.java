@@ -193,6 +193,15 @@ public class PdfGenerator {
         
         if (moms != 0.0){
             String moms1 = moms+"";
+            if (moms >= 1000 && moms1.length() == 6){
+                moms1 = moms1+"0";
+            }
+            if (moms >= 100 && moms1.length() == 5){
+                moms1 = moms1+"0";
+            }
+            if (moms >= 10 && moms1.length() == 4){
+                moms1 = moms1+"0";
+            }
             contentStream.beginText();
             contentStream.setFont(font, 10);
             contentStream.moveTextPositionByAmount(547, 205);
@@ -226,6 +235,18 @@ public class PdfGenerator {
         }
         if (total != 0.0){
             String total1 = total+"";
+            if (total >= 10000 && total1.length() == 7){
+                total1 = total1+"0";
+            }
+            if (total >= 1000 && total1.length() == 6){
+                total1 = total1+"0";
+            }
+            if (total >= 100 && total1.length() == 5){
+                total1 = total1+"0";
+            }
+            if (total >= 10 && total1.length() == 4){
+                total1 = total1+"0";
+            }
             contentStream.beginText();
             contentStream.setFont(font, 10);
             contentStream.moveTextPositionByAmount(547, 185);
