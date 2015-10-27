@@ -286,7 +286,7 @@ public class GUI extends javax.swing.JFrame {
             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 519, Short.MAX_VALUE)
         );
 
-        mainPane.addTab("Shirts", jPanel7);
+        mainPane.addTab("Skjorter", jPanel7);
 
         pantsPanel.setLayout(new javax.swing.BoxLayout(pantsPanel, javax.swing.BoxLayout.Y_AXIS));
         jScrollPane3.setViewportView(pantsPanel);
@@ -664,7 +664,7 @@ public class GUI extends javax.swing.JFrame {
         // Prøver at oprette en PDF med de forskellige information
         //--------------------------------------------------------------------------
         try {
-            //PdfHandler.gemPdf(name, street, streetNum, city, zipCode, eMail, telephone, cardNumber, cardType, month, year, ccv, kurv.returnBasket(), kurv.returnSelectedSize(), kurv.calculateTotalAmount());
+            PdfHandler.gemPdf(name, street, streetNum, city, zipCode, eMail, telephone, cardNumber, cardType, month, year, ccv, kurv.returnBasket(), kurv.returnSelectedSize(), kurv.calculateTotalAmount());
             PdfHandler.gemPdf("morten ", "sdahsjdj", "54", "hasdj", "4578", "jasdkl@jsd.dk", "45781547", "4578547854785478", "Visa", "05", "1997", "548", kurv.returnBasket(), kurv.returnSelectedSize(), kurv.calculateTotalAmount());
         } catch (IOException ex) {
             errorCodeFrame.pack();
