@@ -25,7 +25,15 @@ public class Basket {
         items.add(item);
         selectedSize.add("Størrelse " + size);
     }
-
+    
+    //--------------------------------------------------------------------------
+    // Fjernet et produkt fra kurven
+    //--------------------------------------------------------------------------
+    public void removeItem(int i) {
+        items.remove(i);
+        selectedSize.remove(i);
+    }
+    
     //--------------------------------------------------------------------------
     // Udregner den samlee pris
     //--------------------------------------------------------------------------
