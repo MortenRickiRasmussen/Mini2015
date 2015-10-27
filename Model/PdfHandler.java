@@ -48,7 +48,7 @@ public class PdfHandler {
         if (tlf.length() > 7){
             correctCount++;
         }
-        if (cardNumber.length() > 15){
+        if (cardNumber.length() == 16){
             correctCount++;
         }
         if (cardCCV.length() == 3){
