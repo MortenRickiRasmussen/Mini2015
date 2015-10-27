@@ -48,10 +48,10 @@ public class PdfHandler {
         if (tlf.length() > 7){
             correctCount++;
         }
-        if (cardNumber.length() == 16){
+        if (cardNumber.length() == 16 && isNumber(cardNumber)){
             correctCount++;
         }
-        if (cardCCV.length() == 3){
+        if (cardCCV.length() == 3 && isNumber(cardCCV)){
             correctCount++;
         }
         if (correctCount == 9){
@@ -87,5 +87,13 @@ public class PdfHandler {
         }else{
             return false;
         }
+    }
+    public static boolean isNumber(String str) {
+        try {
+            double d = Double.parseDouble(str);
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+        return true;
     }
 }
