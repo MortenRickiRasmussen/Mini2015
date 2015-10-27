@@ -21,20 +21,22 @@ public class ProductShow extends javax.swing.JPanel {
     private ArrayList sizes;
     private String price;
     private ArrayList products;
-    private Basket basket;
+    private Basket kurv;
     private JLabel headerPrice;
+    private String totalAmount;
 
     /**
      * Creates new form ProductShow
      */
-    public ProductShow(String productName, String color, ArrayList sizes, String price, ArrayList product, Basket basket, JLabel headerPrice) {
+    public ProductShow(String productName, String color, ArrayList sizes, String price, ArrayList product, Basket kurv, JLabel headerPrice, String totalAmount) {
         this.productName = productName;
         this.color = color;
         this.sizes = sizes;
         this.price = price;
         this.products = product;
-        this.basket = basket;
+        this.kurv = kurv;
         this.headerPrice = headerPrice;
+        this.totalAmount = totalAmount;
         initComponents();
         fillData(productName, color, sizes, price);
     }
@@ -145,7 +147,9 @@ public class ProductShow extends javax.swing.JPanel {
         }
 
         String selectedSize = (String) sizeComboBox.getSelectedItem();
-        basket.addItem((Product) products.get(index), selectedSize);
+        kurv.addItem((Product) products.get(index), selectedSize);
+        totalAmount = kurv.calculateTotalAmount();
+        headerPrice.setText(totalAmount + " DKK");
     }//GEN-LAST:event_jButton1ActionPerformed
 
 

@@ -25,13 +25,21 @@ public class Basket {
         items.add(item);
         selectedSize.add("Størrelse " + size);
     }
+    
+    //--------------------------------------------------------------------------
+    // Tilføjer et produkt til kurven fra BasketInventory, som allerede har "Størrelse " foran.
+    //--------------------------------------------------------------------------
+    public void addSameItem(Product item, String size) {
+        items.add(item);
+        selectedSize.add(size);
+    }
 
     //--------------------------------------------------------------------------
     // Fjernet et produkt fra kurven
     //--------------------------------------------------------------------------
-    public void removeItem(int i) {
-        items.remove(i);
-        selectedSize.remove(i);
+    public void removeItem(Product item, String size) {
+        items.remove(item);
+        selectedSize.remove(size);
     }
 
     //--------------------------------------------------------------------------
