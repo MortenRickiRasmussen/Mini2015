@@ -9,13 +9,10 @@ import Model.Basket;
 import Model.DBHandler;
 import Model.Pants;
 import Model.PdfHandler;
-import Model.Product;
 import Model.Shirt;
 import Model.TShirt;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JPanel;
 import org.apache.pdfbox.exceptions.COSVisitorException;
 
@@ -30,12 +27,14 @@ public class GUI extends javax.swing.JFrame {
     private ArrayList<Pants> pants;
     private ArrayList<Shirt> shirts;
     private ArrayList<Shirt> tShirtPanels;
-
     private Basket kurv;
 
     /**
      * Creates new form GUI
      */
+    //--------------------------------------------------------------------------
+    // Metode til at beregne totalprisen 
+    //--------------------------------------------------------------------------
     public void calculateAmount() {
         totalAmount = kurv.calculateTotalAmount() + " DKK";
         headerBeløb.setText(totalAmount);
@@ -66,8 +65,14 @@ public class GUI extends javax.swing.JFrame {
         pants = new ArrayList<>();
         shirts = new ArrayList<>();
 
+        //--------------------------------------------------------------------------
+        // Loader de tre arraylists med produkter fra datasen
+        //--------------------------------------------------------------------------
         DBHandler.loadArrayLists(tShirts, pants, shirts);
 
+        //--------------------------------------------------------------------------
+        // Fylder de tre produkt panels op med produkter dynamisk
+        //--------------------------------------------------------------------------
         for (int i = 0; i < tShirts.size(); i++) {
             JPanel jp = new ProductShow(tShirts.get(i).getName(), tShirts.get(i).getColor(), tShirts.get(i).getSizes(), Float.toString(tShirts.get(i).getPrice()), tShirts, kurv, headerBeløb);
             jp.setVisible(true);
@@ -198,7 +203,6 @@ public class GUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(750, 625));
         setMinimumSize(new java.awt.Dimension(750, 625));
-        setPreferredSize(new java.awt.Dimension(750, 625));
 
         topPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -577,6 +581,10 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_basketCheckoutButtonActionPerformed
 
     private void payButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payButtonActionPerformed
+        
+        //--------------------------------------------------------------------------
+        // Laver variable som henter info fra bestillingssiden.
+        //--------------------------------------------------------------------------
         String name = nameField.getText();
         String eMail = eMailField.getText();
         String telephone = telephoneField.getText();
@@ -590,7 +598,11 @@ public class GUI extends javax.swing.JFrame {
         String month = (String) monthCombo.getSelectedItem();
         String year = (String) yearCombo.getSelectedItem();
         String ccv = ccvField.getText();
+        
 
+        //--------------------------------------------------------------------------
+        // Prøver at oprette en PDF med de forskellige information
+        //--------------------------------------------------------------------------
         try {
             //PdfHandler.gemPdf(name, street, streetNum, city, zipCode, eMail, telephone, cardNumber, cardType, month, year, ccv, kurv.returnBasket(), kurv.returnSelectedSize(), kurv.calculateTotalAmount());
             PdfHandler.gemPdf("morten ", "sdahsjdj", "54", "hasdj", "4578", "jasdkl@jsd.dk", "45781547", "4578547854785478", "Visa", "05", "1997", "548", kurv.returnBasket(), kurv.returnSelectedSize(), kurv.calculateTotalAmount());
@@ -606,13 +618,13 @@ public class GUI extends javax.swing.JFrame {
             errorCodeLabel1.setText("Den valgte sti blev ikke fundet.");
             errorCodeLabel2.setText("Er der oprettet forbindelse til serveren?");
             errorCodeLabel3.setText("Fejlkode: " + ex.getMessage());
-        } /*catch (Exception ex){
-         errorCodeFrame.pack();
-         errorCodeFrame.setVisible(true);
-         errorCodeLabel1.setText("Uventet fejl");
-         errorCodeLabel2.setText("");
-         errorCodeLabel3.setText("Fejlkode: "+ex.getMessage());
-         }*/
+        } catch (Exception ex) {
+            errorCodeFrame.pack();
+            errorCodeFrame.setVisible(true);
+            errorCodeLabel1.setText("Uventet fejl");
+            errorCodeLabel2.setText("");
+            errorCodeLabel3.setText("Fejlkode: " + ex.getMessage());
+        }
     }//GEN-LAST:event_payButtonActionPerformed
 
     /**

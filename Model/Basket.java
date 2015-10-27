@@ -25,7 +25,7 @@ public class Basket {
         items.add(item);
         selectedSize.add("Størrelse " + size);
     }
-    
+
     //--------------------------------------------------------------------------
     // Fjernet et produkt fra kurven
     //--------------------------------------------------------------------------
@@ -33,9 +33,9 @@ public class Basket {
         items.remove(i);
         selectedSize.remove(i);
     }
-    
+
     //--------------------------------------------------------------------------
-    // Udregner den samlee pris
+    // Udregner den samlede pris
     //--------------------------------------------------------------------------
     public String calculateTotalAmount() {
         float totalAmount = 0;
@@ -47,16 +47,20 @@ public class Basket {
                 totalAmount = totalAmount + items.get(i).getPrice();
             }
         }
-  
+
         String amount = String.format("%.2f", totalAmount);
-        
+
         return amount;
     }
-    
+
+    //--------------------------------------------------------------------------
+    // Metoder til at retunere de to ArrayLister
+    //--------------------------------------------------------------------------
     public ArrayList returnBasket() {
         return items;
     }
-    public ArrayList returnSelectedSize(){
+
+    public ArrayList returnSelectedSize() {
         return selectedSize;
     }
 

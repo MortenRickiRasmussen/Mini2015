@@ -66,7 +66,7 @@ public class Pants extends Product {
     }
 
     //--------------------------------------------------------------------------
-    // metoder til at beregner ArrayList størrelser og return.
+    // metoder til at beregne ArrayList størrelser og return.
     //--------------------------------------------------------------------------
     public int getSizesSize() {
         return sizes.size();

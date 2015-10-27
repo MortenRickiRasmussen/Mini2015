@@ -39,6 +39,9 @@ public class ProductShow extends javax.swing.JPanel {
         fillData(productName, color, sizes, price);
     }
 
+    //--------------------------------------------------------------------------
+    // fillData fylder data på de forskellige labels osv.
+    //--------------------------------------------------------------------------
     public void fillData(String productName, String color, ArrayList sizes, String price) {
         productNameLabel.setText(productName);
         colorLabel.setText(color);
@@ -130,6 +133,9 @@ public class ProductShow extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        //--------------------------------------------------------------------------
+        // Tilføjer produkter til kurven
+        //--------------------------------------------------------------------------
         int index = 0;
         for (int i = 0; i < products.size(); i++) {
             Product p = (Product) products.get(i);
@@ -137,7 +143,7 @@ public class ProductShow extends javax.swing.JPanel {
                 index = i;
             }
         }
-        
+
         String selectedSize = (String) sizeComboBox.getSelectedItem();
         basket.addItem((Product) products.get(index), selectedSize);
     }//GEN-LAST:event_jButton1ActionPerformed
