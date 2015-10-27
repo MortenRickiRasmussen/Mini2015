@@ -34,7 +34,7 @@ public class GUI extends javax.swing.JFrame {
      * Creates new form GUI
      */
     public void calculateAmount() {
-        String totalAmount = kurv.calculateTotalAmount() + " DKK";
+        totalAmount = kurv.calculateTotalAmount() + " DKK";
         headerBeløb.setText(totalAmount);
     }
 
