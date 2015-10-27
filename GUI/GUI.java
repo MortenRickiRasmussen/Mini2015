@@ -24,7 +24,7 @@ import org.apache.pdfbox.exceptions.COSVisitorException;
  */
 public class GUI extends javax.swing.JFrame {
 
-    private double totalAmount;
+    private String totalAmount;
     private ArrayList<TShirt> tShirts;
     private ArrayList<Pants> pants;
     private ArrayList<Shirt> shirts;
@@ -54,7 +54,7 @@ public class GUI extends javax.swing.JFrame {
         kurv = new Basket();
 
         totalAmount = kurv.calculateTotalAmount();
-        headerBeløb.setText(totalAmount + "0 DKK");
+        headerBeløb.setText(totalAmount + " DKK");
 
         //--------------------------------------------------------------------------
         // Initialisere produkt ArrayLists
@@ -185,18 +185,20 @@ public class GUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
-                .addComponent(headerBeløb, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(headerBeløb, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         topPanelLayout.setVerticalGroup(
             topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, topPanelLayout.createSequentialGroup()
+            .addGroup(topPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel3)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, topPanelLayout.createSequentialGroup()
+                        .addGroup(topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(headerBeløb, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -654,7 +656,7 @@ public class GUI extends javax.swing.JFrame {
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jLayeredPane1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(mainPane)
+                .addComponent(mainPane, javax.swing.GroupLayout.DEFAULT_SIZE, 688, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
@@ -791,13 +793,7 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_basketCheckoutButtonActionPerformed
 
     private void testPDFButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testPDFButtonActionPerformed
-        try {
-            PdfHandler.gemPdf("Jakob Ferdinandsen", "Solbakkevej", "27", "Næstved", "4700", "mollyjakob@gmail.com", "53650549", "1234567890111111", "Visa", "05", "1967", "555", kurv.returnBasket(), kurv.returnSelectedSize(), kurv.calculateTotalAmount());
-        } catch (IOException ex) {
-            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (COSVisitorException ex) {
-            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        PdfHandler.gemPdf("Jakob Ferdinandsen", "Solbakkevej", "27", "Næstved", "4700", "mollyjakob@gmail.com", "53650549", "1234567890111111", "Visa", "05", "1967", "555", kurv.returnBasket(), kurv.returnSelectedSize(), kurv.calculateTotalAmount());
     }//GEN-LAST:event_testPDFButtonActionPerformed
 
     /**

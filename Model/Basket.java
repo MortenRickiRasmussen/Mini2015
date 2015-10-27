@@ -1,6 +1,7 @@
 package Model;
 
 import java.util.ArrayList;
+import static oracle.jrockit.jfr.events.Bits.floatValue;
 
 /**
  *
@@ -29,7 +30,7 @@ public class Basket {
     //--------------------------------------------------------------------------
     // Udregner den samlee pris
     //--------------------------------------------------------------------------
-    public float calculateTotalAmount() {
+    public String calculateTotalAmount() {
         float totalAmount = 0;
 
         if (items.isEmpty()) {
@@ -39,8 +40,10 @@ public class Basket {
                 totalAmount = totalAmount + items.get(i).getPrice();
             }
         }
-
-        return totalAmount;
+  
+        String amount = String.format("%.2f", totalAmount);
+        
+        return amount;
     }
     
     public ArrayList returnBasket() {
