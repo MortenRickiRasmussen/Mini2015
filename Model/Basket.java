@@ -1,7 +1,6 @@
 package Model;
 
 import java.util.ArrayList;
-import static oracle.jrockit.jfr.events.Bits.floatValue;
 
 /**
  *
@@ -24,7 +23,7 @@ public class Basket {
     //--------------------------------------------------------------------------
     public void addItem(Product item, String size) {
         items.add(item);
-        selectedSize.add("Størrlese " + size);
+        selectedSize.add("Størrelse " + size);
     }
 
     //--------------------------------------------------------------------------
