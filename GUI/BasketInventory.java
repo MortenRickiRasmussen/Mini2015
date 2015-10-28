@@ -128,8 +128,8 @@ public class BasketInventory extends javax.swing.JPanel {
         });
 
         minusButton.setText("-");
-        minusButton.setMaximumSize(new java.awt.Dimension(23, 28));
-        minusButton.setMinimumSize(new java.awt.Dimension(23, 28));
+        minusButton.setMaximumSize(new java.awt.Dimension(41, 23));
+        minusButton.setMinimumSize(new java.awt.Dimension(41, 23));
         minusButton.setPreferredSize(new java.awt.Dimension(23, 28));
         minusButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -157,16 +157,16 @@ public class BasketInventory extends javax.swing.JPanel {
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 604, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(38, 38, 38))
                     .addGroup(kurvItemLayout.createSequentialGroup()
+                        .addGroup(kurvItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(nameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
+                            .addComponent(sizeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                         .addGroup(kurvItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(sizeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(kurvItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(kurvItemLayout.createSequentialGroup()
-                                .addComponent(minusButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kurvItemLayout.createSequentialGroup()
+                                .addComponent(minusButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(numberOfItem, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel1))
+                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addGap(4, 4, 4)
                         .addComponent(plusButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)

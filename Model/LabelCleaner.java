@@ -15,7 +15,7 @@ public class LabelCleaner {
     private Timer timer;
     
 
-    public LabelCleaner(int waitSeconds, JLabel label) {
+    public LabelCleaner(int waitSeconds, final JLabel label) {
         this.label = label;
         this.waitSeconds = waitSeconds;
         timer = new Timer(waitSeconds * 1000, new ActionListener() {

@@ -64,18 +64,18 @@
                           <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="nameLabel" min="-2" pref="328" max="-2" attributes="0"/>
-                              <Component id="sizeLabel" min="-2" pref="328" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="nameLabel" pref="320" max="32767" attributes="0"/>
+                              <Component id="sizeLabel" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="minusButton" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="18" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="minusButton" min="-2" pref="38" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="numberOfItem" min="-2" pref="27" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel1" alignment="1" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                           <Component id="plusButton" min="-2" max="-2" attributes="0"/>
@@ -147,10 +147,10 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="-"/>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[23, 28]"/>
+              <Dimension value="[41, 23]"/>
             </Property>
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[23, 28]"/>
+              <Dimension value="[41, 23]"/>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[23, 28]"/>
