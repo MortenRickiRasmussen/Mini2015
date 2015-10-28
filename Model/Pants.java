@@ -1,10 +1,13 @@
 package Model;
 
+import java.util.ArrayList;
+
 /**
  *
- * @author Morten Ricki Rasmussen 
+ * @author Morten Ricki Rasmussen
  */
-public class Pants extends Product{
+public class Pants extends Product {
+
     private boolean size28;
     private boolean size29;
     private boolean size30;
@@ -14,8 +17,12 @@ public class Pants extends Product{
     private boolean size34;
     private boolean size36;
     private boolean size38;
-    
-    public Pants(String name, String color, int price, boolean size28, boolean size29, boolean size30, boolean size31, boolean size32, boolean size33, boolean size34, boolean size36, boolean size38) {
+    private ArrayList sizes;
+
+    //--------------------------------------------------------------------------
+    // Constructor som laver et objekt og fylder størrelser i ArrayListen sizes
+    //--------------------------------------------------------------------------
+    public Pants(String name, String color, float price, boolean size28, boolean size29, boolean size30, boolean size31, boolean size32, boolean size33, boolean size34, boolean size36, boolean size38) {
         super.setName(name);
         super.setColor(color);
         super.setPrice(price);
@@ -28,46 +35,45 @@ public class Pants extends Product{
         this.size34 = size34;
         this.size36 = size36;
         this.size38 = size38;
-    }
-    
-    //--------------------------------------------------------------------------
-    // toString
-    //--------------------------------------------------------------------------
-
-    @Override
-    public String toString() {
-        String sizes;
-        sizes = "Sizes: ";
-        
+        sizes = new ArrayList();
         if (size28 == true) {
-            sizes = "Size 28 ";
+            sizes.add("28");
         }
         if (size29 == true) {
-            sizes = sizes + "Size 29 ";
+            sizes.add("29");
         }
         if (size30 == true) {
-            sizes = sizes + "Size 30 ";
+            sizes.add("30");
         }
         if (size31 == true) {
-            sizes = sizes + "Size 31";
+            sizes.add("31");
         }
         if (size32 == true) {
-            sizes = sizes + "Size 31";
-        }        
+            sizes.add("32");
+        }
         if (size33 == true) {
-            sizes = sizes + "Size 33";
+            sizes.add("33");
         }
         if (size34 == true) {
-            sizes = sizes + "Size 34";
+            sizes.add("34");
         }
         if (size36 == true) {
-            sizes = sizes + "Size 36";
+            sizes.add("36");
         }
         if (size38 == true) {
-            sizes = sizes + "Size 38";
+            sizes.add("38");
         }
-        
+    }
+
+    //--------------------------------------------------------------------------
+    // metoder til at beregne ArrayList størrelser og return.
+    //--------------------------------------------------------------------------
+    public int getSizesSize() {
+        return sizes.size();
+    }
+
+    public ArrayList getSizes() {
         return sizes;
     }
-            
+
 }

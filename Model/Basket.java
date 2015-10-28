@@ -4,28 +4,72 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Morten Ricki Rasmussen 
+ * @author Morten Ricki Rasmussen
  */
 public class Basket {
+
     private String name;
     private ArrayList<Product> items;
-    
+    private ArrayList<String> selectedSize;
+
     public Basket() {
         this.name = "Basket";
+        items = new ArrayList();
+        selectedSize = new ArrayList();
     }
-    
-    public void addItem(Product item) {
+
+    //--------------------------------------------------------------------------
+    // Tilføjer et produkt til kurven
+    //--------------------------------------------------------------------------
+    public void addItem(Product item, String size) {
         items.add(item);
+        selectedSize.add("Størrelse " + size);
     }
     
-    public int calculateTotalAmout() {
-        int totalAmout = 0;
-        
-        for (int i = 0; i < items.size(); i++) {
-            totalAmout = totalAmout + items.get(i).getPrice();
+    //--------------------------------------------------------------------------
+    // Tilføjer et produkt til kurven fra BasketInventory, som allerede har "Størrelse " foran.
+    //--------------------------------------------------------------------------
+    public void addSameItem(Product item, String size) {
+        items.add(item);
+        selectedSize.add(size);
+    }
+
+    //--------------------------------------------------------------------------
+    // Fjernet et produkt fra kurven
+    //--------------------------------------------------------------------------
+    public void removeItem(Product item, String size) {
+        items.remove(item);
+        selectedSize.remove(size);
+    }
+
+    //--------------------------------------------------------------------------
+    // Udregner den samlede pris
+    //--------------------------------------------------------------------------
+    public String calculateTotalAmount() {
+        float totalAmount = 0;
+
+        if (items.isEmpty()) {
+            totalAmount = 0;
+        } else {
+            for (int i = 0; i < items.size(); i++) {
+                totalAmount = totalAmount + items.get(i).getPrice();
+            }
         }
-        
-        return totalAmout;
+
+        String amount = String.format("%.2f", totalAmount);
+
+        return amount;
     }
-    
+
+    //--------------------------------------------------------------------------
+    // Metoder til at retunere de to ArrayLister
+    //--------------------------------------------------------------------------
+    public ArrayList returnBasket() {
+        return items;
+    }
+
+    public ArrayList returnSelectedSize() {
+        return selectedSize;
+    }
+
 }
