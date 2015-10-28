@@ -105,6 +105,7 @@ public class GUI extends javax.swing.JFrame {
         errorCodeLabel3 = new javax.swing.JLabel();
         errorCodeLabel1 = new javax.swing.JLabel();
         errorCodeLabel2 = new javax.swing.JLabel();
+        errorCodeLabel4 = new javax.swing.JLabel();
         topPanel = new javax.swing.JPanel();
         headerPrice = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -166,6 +167,10 @@ public class GUI extends javax.swing.JFrame {
         errorCodeLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         errorCodeLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
+        errorCodeLabel4.setText("Label3");
+        errorCodeLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        errorCodeLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -173,21 +178,24 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(errorCodeLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(errorCodeLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 391, Short.MAX_VALUE)
                     .addComponent(errorCodeLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(errorCodeLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE))
+                    .addComponent(errorCodeLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 391, Short.MAX_VALUE)
+                    .addComponent(errorCodeLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 391, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addComponent(errorCodeLabel3)
-                .addGap(58, 58, 58)
+                .addGap(74, 74, 74)
                 .addComponent(errorCodeLabel1)
-                .addGap(50, 50, 50)
+                .addGap(31, 31, 31)
                 .addComponent(errorCodeLabel2)
-                .addContainerGap(71, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(errorCodeLabel4)
+                .addGap(23, 23, 23)
+                .addComponent(errorCodeLabel3)
+                .addContainerGap(75, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout errorCodeFrameLayout = new javax.swing.GroupLayout(errorCodeFrame.getContentPane());
@@ -270,8 +278,6 @@ public class GUI extends javax.swing.JFrame {
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 519, Short.MAX_VALUE)
         );
 
-        jScrollPane1.getVerticalScrollBar().setUnitIncrement(10);
-
         mainPane.addTab("T-Shirts", jPanel5);
 
         shirtPanel.setLayout(new javax.swing.BoxLayout(shirtPanel, javax.swing.BoxLayout.Y_AXIS));
@@ -288,8 +294,6 @@ public class GUI extends javax.swing.JFrame {
             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 519, Short.MAX_VALUE)
         );
 
-        jScrollPane2.getVerticalScrollBar().setUnitIncrement(10);
-
         mainPane.addTab("Skjorter", jPanel7);
 
         pantsPanel.setLayout(new javax.swing.BoxLayout(pantsPanel, javax.swing.BoxLayout.Y_AXIS));
@@ -305,8 +309,6 @@ public class GUI extends javax.swing.JFrame {
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 519, Short.MAX_VALUE)
         );
-
-        jScrollPane3.getVerticalScrollBar().setUnitIncrement(10);
 
         mainPane.addTab("Bukser", jPanel6);
 
@@ -684,6 +686,13 @@ public class GUI extends javax.swing.JFrame {
             errorCodeLabel1.setText("Den valgte sti blev ikke fundet.");
             errorCodeLabel2.setText("Er der oprettet forbindelse til serveren?");
             errorCodeLabel3.setText("Fejlkode: " + ex.getMessage());
+        } catch (NumberFormatException ex) {
+            errorCodeFrame.pack();
+            errorCodeFrame.setVisible(true);
+            errorCodeLabel1.setText("De har ikke indtastet korrekte oplysninger");
+            errorCodeLabel2.setText("Har de huset deres fulde navn, en korrekt email, ");
+            errorCodeLabel4.setText("otte cifre i deres telefonnummer samt et postnummer som eksistere?");
+            errorCodeLabel3.setText("Fejlkode: " + ex.getMessage());
         } catch (Exception ex) {
             errorCodeFrame.pack();
             errorCodeFrame.setVisible(true);
@@ -744,6 +753,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel errorCodeLabel1;
     private javax.swing.JLabel errorCodeLabel2;
     private javax.swing.JLabel errorCodeLabel3;
+    private javax.swing.JLabel errorCodeLabel4;
     private javax.swing.JLabel headerPrice;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
