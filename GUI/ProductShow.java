@@ -6,6 +6,7 @@
 package GUI;
 
 import Model.Basket;
+import Model.LabelCleaner;
 import Model.Product;
 import java.util.ArrayList;
 import javax.swing.JLabel;
@@ -24,6 +25,7 @@ public class ProductShow extends javax.swing.JPanel {
     private Basket kurv;
     private JLabel headerPrice;
     private String totalAmount;
+    private LabelCleaner timer;
 
     /**
      * Creates new form ProductShow
@@ -38,6 +40,8 @@ public class ProductShow extends javax.swing.JPanel {
         this.headerPrice = headerPrice;
         this.totalAmount = totalAmount;
         initComponents();
+        basketAddedLabel.setVisible(false);
+        timer = new LabelCleaner(1, basketAddedLabel);
         fillData(productName, color, sizes, price);
     }
 
@@ -69,6 +73,7 @@ public class ProductShow extends javax.swing.JPanel {
         colorLabel = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jButton1 = new javax.swing.JButton();
+        basketAddedLabel = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(660, 120));
         setMinimumSize(new java.awt.Dimension(660, 120));
@@ -90,6 +95,8 @@ public class ProductShow extends javax.swing.JPanel {
             }
         });
 
+        basketAddedLabel.setText("Tilføjet til kurv");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -103,24 +110,27 @@ public class ProductShow extends javax.swing.JPanel {
                         .addGap(31, 31, 31)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(colorLabel)
-                                .addGap(569, 569, 569))
-                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(productNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(42, 42, 42)
                                 .addComponent(sizeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(priceLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
+                                .addComponent(priceLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
                                 .addGap(36, 36, 36)
-                                .addComponent(jButton1)))))
+                                .addComponent(jButton1)
+                                .addGap(2, 2, 2))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(colorLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(basketAddedLabel)
+                                .addGap(11, 11, 11)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(34, Short.MAX_VALUE)
+                .addContainerGap(30, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(productNameLabel)
                     .addComponent(sizeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -128,7 +138,9 @@ public class ProductShow extends javax.swing.JPanel {
                     .addComponent(jLabel2)
                     .addComponent(jButton1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(colorLabel)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(colorLabel)
+                    .addComponent(basketAddedLabel))
                 .addGap(30, 30, 30)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -150,10 +162,13 @@ public class ProductShow extends javax.swing.JPanel {
         kurv.addItem((Product) products.get(index), selectedSize);
         totalAmount = kurv.calculateTotalAmount();
         headerPrice.setText(totalAmount + " DKK");
+        basketAddedLabel.setVisible(true);
+        timer.restartCountDown();
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel basketAddedLabel;
     private javax.swing.JLabel colorLabel;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
