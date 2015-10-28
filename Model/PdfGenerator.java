@@ -37,8 +37,8 @@ public class PdfGenerator {
         emailAdresse = "";
         telefonNr = "";
         postNummer = "";
-        ydelseNavn = new String[16];
-        ydelsePris = new String[16];
+        ydelseNavn = new String[17];
+        ydelsePris = new String[17];
     }
 
     public boolean generatePDF() throws IOException, COSVisitorException {
@@ -120,7 +120,7 @@ public class PdfGenerator {
         contentStream.beginText();
         contentStream.setFont(font, 10);
         contentStream.moveTextPositionByAmount(547, 532);
-        for (int i = 0; i < 16; i++) {
+        for (int i = 0; i < ydelsePris.length; i++) {
             if (ydelsePris[i] != null) {
                 contentStream.moveTextPositionByAmount(0, -18);
                 float text_width6 = (font.getStringWidth(ydelsePris[i].substring(0, 3) + "," + ydelsePris[i].substring(4, 6) + "kr.") / 1000.0f) * 10;
