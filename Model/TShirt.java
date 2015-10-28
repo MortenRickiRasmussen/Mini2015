@@ -40,10 +40,6 @@ public class TShirt extends Product{
             sizes.add("L");
         }
     }
-     
-    public int getSizesSize() {
-        return sizes.size();
-    }
     
     public ArrayList getSizes() {
         return sizes;

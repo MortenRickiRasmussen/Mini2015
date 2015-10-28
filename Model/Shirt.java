@@ -57,10 +57,6 @@ public class Shirt extends Product {
         }
     }
 
-    public int getSizesSize() {
-        return sizes.size();
-    }
-
     public ArrayList getSizes() {
         return sizes;
     }
