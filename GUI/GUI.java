@@ -15,8 +15,6 @@ import Model.TShirt;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JPanel;
 import org.apache.pdfbox.exceptions.COSVisitorException;
 
