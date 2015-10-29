@@ -16,7 +16,6 @@ import org.apache.pdfbox.pdmodel.font.PDTrueTypeFont;
  * @author Jakob
  */
 public class PdfGenerator {
-
     private String kundeNavn;
     private String vejNavn;
     private int vejNr;
@@ -41,6 +40,14 @@ public class PdfGenerator {
         ydelsePris = new String[17];
     }
 
+    /**
+     * Denne metode bygger en pdf op fra variablerne i denne klasse, hvorefter den ligger den oven på en template kaldet "fakForm.pdf".
+     * Den gemmer den nye pdf som faktura, med fakturanummer + kundeNavn som titel.
+     * Bruger Apache PDFBox library.
+     * @return
+     * @throws IOException
+     * @throws COSVisitorException
+     */
     public boolean generatePDF() throws IOException, COSVisitorException {
         PDDocument faktura = new PDDocument();
         PDPage page = new PDPage(PDPage.PAGE_SIZE_A4);
@@ -233,7 +240,6 @@ public class PdfGenerator {
         Overlay overlay = new Overlay();
         overlay.overlay(fakForm, faktura);
         faktura.save("Faktura " + fakNummer + " " + kundeNavn + ".pdf");
-        faktura.save("Ordre " + fakNummer + " " + kundeNavn + ".pdf");
         fakForm.close();
         faktura.close();
         return true;
