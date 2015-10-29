@@ -60,7 +60,7 @@ public class PdfHandler {
         if (!streetName.isEmpty()){
             correctCount++;
         }
-        if (Integer.parseInt(streetNum) > 0){
+        if (!streetNum.isEmpty()){
             correctCount++;
         }
         if (!cityName.isEmpty()){
@@ -97,7 +97,7 @@ public class PdfHandler {
             pdf.setPostNummer(postalCode);
             pdf.setTelefonNr(tlf);
             pdf.setVejNavn(streetName);
-            pdf.setVejNr(Integer.parseInt(streetNum));
+            pdf.setVejNr(streetNum);
             pdf.setTotal(total1);
             pdf.setMoms(moms);
             if (pdf.generatePDF()){

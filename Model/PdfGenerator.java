@@ -18,7 +18,7 @@ import org.apache.pdfbox.pdmodel.font.PDTrueTypeFont;
 public class PdfGenerator {
     private String kundeNavn;
     private String vejNavn;
-    private int vejNr;
+    private String vejNr;
     private String postNummer;
     private String by;
     private String emailAdresse;
@@ -72,7 +72,7 @@ public class PdfGenerator {
         contentStream.moveTextPositionByAmount(0, -12);
         contentStream.drawString(kundeNavn);
         if (!vejNavn.isEmpty()) {
-            if (vejNr == 0) {
+            if (vejNr.isEmpty()) {
                 contentStream.moveTextPositionByAmount(0, -12);
                 contentStream.drawString(vejNavn);
             } else {
@@ -255,7 +255,7 @@ public class PdfGenerator {
         this.vejNavn = vejNavn;
     }
 
-    public void setVejNr(int vejNr) {
+    public void setVejNr(String vejNr) {
         this.vejNr = vejNr;
     }
 
