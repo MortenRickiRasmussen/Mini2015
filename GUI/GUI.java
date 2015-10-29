@@ -292,6 +292,8 @@ public class GUI extends javax.swing.JFrame {
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 576, Short.MAX_VALUE)
         );
 
+        jScrollPane1.getVerticalScrollBar().setUnitIncrement(10);
+
         mainPane.addTab("T-Shirts", jPanel5);
 
         shirtPanel.setLayout(new javax.swing.BoxLayout(shirtPanel, javax.swing.BoxLayout.Y_AXIS));
@@ -308,6 +310,8 @@ public class GUI extends javax.swing.JFrame {
             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 576, Short.MAX_VALUE)
         );
 
+        jScrollPane2.getVerticalScrollBar().setUnitIncrement(10);
+
         mainPane.addTab("Skjorter", jPanel7);
 
         pantsPanel.setLayout(new javax.swing.BoxLayout(pantsPanel, javax.swing.BoxLayout.Y_AXIS));
@@ -323,6 +327,8 @@ public class GUI extends javax.swing.JFrame {
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 576, Short.MAX_VALUE)
         );
+
+        jScrollPane3.getVerticalScrollBar().setUnitIncrement(10);
 
         mainPane.addTab("Bukser", jPanel6);
 
@@ -378,6 +384,8 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(ItemsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(41, Short.MAX_VALUE)))
         );
+
+        jScrollPane1.getVerticalScrollBar().setUnitIncrement(10);
 
         checkoutPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -688,8 +696,8 @@ public class GUI extends javax.swing.JFrame {
         // Prøver at oprette en PDF med de forskellige information
         //--------------------------------------------------------------------------
         try {
-            //PdfHandler.gemPdf(name, street, streetNum, city, zipCode, eMail, telephone, cardNumber, cardType, month, year, ccv, kurv.returnBasket(), kurv.returnSelectedSize(), kurv.calculateTotalAmount());
-            PdfHandler.gemPdf("morten ", "sdahsjdj", "54", "hasdj", "4578", "jasdkl@jsd.dk", "45781547", "4578547854785478", "Visa", "05", "1997", "548", kurv.returnBasket(), kurv.returnSelectedSize(), kurv.calculateTotalAmount());
+            PdfHandler.gemPdf(name, street, streetNum, city, zipCode, eMail, telephone, cardNumber, cardType, month, year, ccv, kurv.returnBasket(), kurv.returnSelectedSize(), kurv.calculateTotalAmount());
+            //PdfHandler.gemPdf("morten ", "sdahsjdj", "54", "hasdj", "4578", "jasdkl@jsd.dk", "45781547", "4578547854785478", "Visa", "05", "1997", "548", kurv.returnBasket(), kurv.returnSelectedSize(), kurv.calculateTotalAmount());
         } catch (IOException | COSVisitorException ex) {
             errorCodeFrame.pack();
             errorCodeFrame.setVisible(true);

@@ -23,8 +23,8 @@ public class PdfHandler {
      * gemPDF er en static metode som bliver brugt til at kommunikere imellem GUI/main og PdfGenerator.
      * Den modtager data fra GUI, tjekker igennem om det lever op til kravene, hvorefter den sender 
      * det videre til PdfGenerator. retunerer false hvis der er nogle parametre der ikke lever op til 
-     * kravene, eller generatePDF returner false. Den henter faktura nummer fra en fil og tilføjer et par nuller til
-     * alt efter hvilket nummer den er nået til.
+     * kravene, eller generatePDF returner false. Den henter faktura nummer fra en "fakNum.txt" og tilføjer et par nuller til
+     * alt efter hvilket nummer den er nået til. Hvis generatePDF() retunerer true, tæller den tallet i "fakNum.txt" 
      * @param name
      * @param streetName
      * @param streetNum
