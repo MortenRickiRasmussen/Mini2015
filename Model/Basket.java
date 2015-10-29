@@ -7,13 +7,10 @@ import java.util.ArrayList;
  * @author Morten Ricki Rasmussen
  */
 public class Basket {
-
-    private String name;
     private ArrayList<Product> items;
     private ArrayList<String> selectedSize;
 
     public Basket() {
-        this.name = "Basket";
         items = new ArrayList();
         selectedSize = new ArrayList();
     }
