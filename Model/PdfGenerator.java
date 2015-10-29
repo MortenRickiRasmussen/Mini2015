@@ -244,7 +244,9 @@ public class PdfGenerator {
         faktura.close();
         return true;
     }
-
+//------------------------------------------------------------------------------    
+//    Mutators
+//------------------------------------------------------------------------------
     public void setKundeNavn(String kundeNavn) {
         this.kundeNavn = kundeNavn;
     }
