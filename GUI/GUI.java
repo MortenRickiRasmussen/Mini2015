@@ -158,6 +158,8 @@ public class GUI extends javax.swing.JFrame {
         cardNumberField = new javax.swing.JTextField();
         streetNumField = new javax.swing.JTextField();
 
+        jPanel4.setPreferredSize(new java.awt.Dimension(700, 106));
+
         popUpLabel3.setText("Label1");
         popUpLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
@@ -179,38 +181,42 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(popUpLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 391, Short.MAX_VALUE)
+                    .addComponent(popUpLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 676, Short.MAX_VALUE)
                     .addComponent(popUpLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(popUpLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 391, Short.MAX_VALUE)
-                    .addComponent(popUpLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 391, Short.MAX_VALUE))
+                    .addComponent(popUpLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(popUpLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(74, 74, 74)
+                .addContainerGap()
                 .addComponent(popUpLabel1)
-                .addGap(31, 31, 31)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(popUpLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(popUpLabel4)
-                .addGap(23, 23, 23)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(popUpLabel3)
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout popUpFrameLayout = new javax.swing.GroupLayout(popUpFrame.getContentPane());
         popUpFrame.getContentPane().setLayout(popUpFrameLayout);
         popUpFrameLayout.setHorizontalGroup(
             popUpFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(popUpFrameLayout.createSequentialGroup()
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         popUpFrameLayout.setVerticalGroup(
             popUpFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, popUpFrameLayout.createSequentialGroup()
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        jPanel4.getAccessibleContext().setAccessibleName("");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(750, 625));
@@ -716,8 +722,8 @@ public class GUI extends javax.swing.JFrame {
             popUpFrame.setVisible(true);
             popUpLabel1.setText("Der mangler muligvis en fil i programroden");
             popUpLabel2.setText("Kontakt administratoren og giv ham følgende oplysninger:");
-            popUpLabel3.setText("Fejlkode: " + ex.getMessage());
-            popUpLabel4.setText("");
+            popUpLabel4.setText("Fejlkode: " + ex.getMessage());
+            popUpLabel3.setText("");
         } catch (NumberFormatException ex) {
             popUpFrame.pack();
             popUpFrame.setVisible(true);
@@ -730,15 +736,15 @@ public class GUI extends javax.swing.JFrame {
             popUpFrame.setVisible(true);
             popUpLabel1.setText("Du har for mange dele i din kurv.");
             popUpLabel2.setText("lav venligst 2 ordre istedet");
-            popUpLabel3.setText("Fejlkode: " + ex.getMessage());
-            popUpLabel4.setText("");
+            popUpLabel4.setText("Fejlkode: " + ex.getMessage());
+            popUpLabel3.setText("");
         } catch (Exception ex) {
             popUpFrame.pack();
             popUpFrame.setVisible(true);
             popUpLabel1.setText("Uventet fejl");
             popUpLabel2.setText("");
-            popUpLabel3.setText("Fejlkode: " + ex.getMessage());
-            popUpLabel4.setText("");
+            popUpLabel4.setText("Fejlkode: " + ex.getMessage());
+            popUpLabel3.setText("");
         }
     }//GEN-LAST:event_payButtonActionPerformed
 
