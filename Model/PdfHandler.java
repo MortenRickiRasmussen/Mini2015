@@ -10,7 +10,7 @@ import org.apache.pdfbox.exceptions.COSVisitorException;
 
 /**
  *
- * @author Jakob
+ * @author Jakob Ferdinandsen
  */
 public class PdfHandler {
     private static int correctCount;

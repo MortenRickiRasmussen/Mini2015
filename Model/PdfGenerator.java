@@ -13,7 +13,7 @@ import org.apache.pdfbox.pdmodel.font.PDTrueTypeFont;
 
 /**
  *
- * @author Jakob
+ * @author Jakob Ferdinandsen
  */
 public class PdfGenerator {
     private String kundeNavn;

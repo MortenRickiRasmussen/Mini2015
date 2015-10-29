@@ -7,7 +7,7 @@ import javax.swing.Timer;
 
 /**
  *
- * @author Jakob
+ * @author Jakob Ferdinandsen
  */
 public class LabelCleaner {
     private JLabel label;

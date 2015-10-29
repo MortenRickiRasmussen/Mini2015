@@ -6,7 +6,7 @@ import java.io.BufferedReader;
 
 /**
  *
- * @author Jakob
+ * @author Jakob Ferdinandsen
  */
 public class ReadFile {
 
