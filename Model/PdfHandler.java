@@ -19,6 +19,33 @@ public class PdfHandler {
     private static int fakturaNummer;
     private static String fakNumZeroes;
     
+    /**
+     * gemPDF er en static metode som bliver brugt til at kommunikere imellem GUI/main og PdfGenerator.
+     * Den modtager data fra GUI, tjekker igennem om det lever op til kravene, hvorefter den sender 
+     * det videre til PdfGenerator. retunerer false hvis der er nogle parametre der ikke lever op til 
+     * kravene, eller generatePDF returner false. Den henter faktura nummer fra en fil og tilføjer et par nuller til
+     * alt efter hvilket nummer den er nået til.
+     * @param name
+     * @param streetName
+     * @param streetNum
+     * @param cityName
+     * @param postalCode
+     * @param email
+     * @param tlf
+     * @param cardNumber
+     * @param cardType
+     * @param cardMonth
+     * @param cardYear
+     * @param cardCCV
+     * @param items
+     * @param sizes
+     * @param total
+     * @return
+     * @throws IOException
+     * @throws COSVisitorException
+     * @throws FileNotFoundException
+     * @throws UnsupportedEncodingException
+     */
     public static boolean gemPdf(String name, String streetName, String streetNum, String cityName, String postalCode, String email, String tlf, String cardNumber, String cardType, String cardMonth, String cardYear, String cardCCV, ArrayList<Product> items, ArrayList sizes, String total) throws IOException, COSVisitorException, FileNotFoundException, UnsupportedEncodingException{
         Float total1 = Float.parseFloat(total.replace(",", "."));
         Float moms = Float.parseFloat(String.format("%.2f", total1*0.2f).replace(",", "."));
@@ -87,6 +114,12 @@ public class PdfHandler {
             return false;
         }
     }
+    
+    /**
+     * Tjekker om den string den får er et nummer. returnerer true hvis den kan få en double ud af den.
+     * @param str
+     * @return
+     */
     public static boolean isNumber(String str) {
         try {
             double d = Double.parseDouble(str);
