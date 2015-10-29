@@ -100,12 +100,12 @@ public class GUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        errorCodeFrame = new javax.swing.JFrame();
+        popUpFrame = new javax.swing.JFrame();
         jPanel4 = new javax.swing.JPanel();
-        errorCodeLabel3 = new javax.swing.JLabel();
-        errorCodeLabel1 = new javax.swing.JLabel();
-        errorCodeLabel2 = new javax.swing.JLabel();
-        errorCodeLabel4 = new javax.swing.JLabel();
+        popUpLabel3 = new javax.swing.JLabel();
+        popUpLabel1 = new javax.swing.JLabel();
+        popUpLabel2 = new javax.swing.JLabel();
+        popUpLabel4 = new javax.swing.JLabel();
         topPanel = new javax.swing.JPanel();
         headerPrice = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -158,19 +158,19 @@ public class GUI extends javax.swing.JFrame {
         cardNumberField = new javax.swing.JTextField();
         streetNumField = new javax.swing.JTextField();
 
-        errorCodeLabel3.setText("Label1");
-        errorCodeLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        popUpLabel3.setText("Label1");
+        popUpLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        errorCodeLabel1.setText("Label2");
-        errorCodeLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        popUpLabel1.setText("Label2");
+        popUpLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        errorCodeLabel2.setText("Label3");
-        errorCodeLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        errorCodeLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        popUpLabel2.setText("Label3");
+        popUpLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        popUpLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        errorCodeLabel4.setText("Label3");
-        errorCodeLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        errorCodeLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        popUpLabel4.setText("Label3");
+        popUpLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        popUpLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -179,41 +179,40 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(errorCodeLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 391, Short.MAX_VALUE)
-                    .addComponent(errorCodeLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(errorCodeLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 391, Short.MAX_VALUE)
-                    .addComponent(errorCodeLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 391, Short.MAX_VALUE))
+                    .addComponent(popUpLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 391, Short.MAX_VALUE)
+                    .addComponent(popUpLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(popUpLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 391, Short.MAX_VALUE)
+                    .addComponent(popUpLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 391, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(74, 74, 74)
-                .addComponent(errorCodeLabel1)
+                .addComponent(popUpLabel1)
                 .addGap(31, 31, 31)
-                .addComponent(errorCodeLabel2)
+                .addComponent(popUpLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(errorCodeLabel4)
+                .addComponent(popUpLabel4)
                 .addGap(23, 23, 23)
-                .addComponent(errorCodeLabel3)
+                .addComponent(popUpLabel3)
                 .addContainerGap(75, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout errorCodeFrameLayout = new javax.swing.GroupLayout(errorCodeFrame.getContentPane());
-        errorCodeFrame.getContentPane().setLayout(errorCodeFrameLayout);
-        errorCodeFrameLayout.setHorizontalGroup(
-            errorCodeFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout popUpFrameLayout = new javax.swing.GroupLayout(popUpFrame.getContentPane());
+        popUpFrame.getContentPane().setLayout(popUpFrameLayout);
+        popUpFrameLayout.setHorizontalGroup(
+            popUpFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        errorCodeFrameLayout.setVerticalGroup(
-            errorCodeFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, errorCodeFrameLayout.createSequentialGroup()
+        popUpFrameLayout.setVerticalGroup(
+            popUpFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, popUpFrameLayout.createSequentialGroup()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(750, 625));
         setMinimumSize(new java.awt.Dimension(750, 625));
 
         topPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -696,27 +695,43 @@ public class GUI extends javax.swing.JFrame {
         // Prøver at oprette en PDF med de forskellige information
         //--------------------------------------------------------------------------
         try {
-            PdfHandler.gemPdf(name, street, streetNum, city, zipCode, eMail, telephone, cardNumber, cardType, month, year, ccv, kurv.returnBasket(), kurv.returnSelectedSize(), kurv.calculateTotalAmount());
+            if (PdfHandler.gemPdf(name, street, streetNum, city, zipCode, eMail, telephone, cardNumber, cardType, month, year, ccv, kurv.returnBasket(), kurv.returnSelectedSize(), kurv.calculateTotalAmount())){
+                popUpFrame.pack();
+                popUpFrame.setVisible(true);
+                popUpLabel1.setText("");
+                popUpLabel2.setText("Ordre modtaget");
+                popUpLabel3.setText("");
+                popUpLabel4.setText("");
+            }else{
+                popUpFrame.pack();
+                popUpFrame.setVisible(true);
+                popUpLabel1.setText("De har ikke indtastet korrekte oplysninger");
+                popUpLabel2.setText("Har de huset deres fulde navn, en korrekt email, ");
+                popUpLabel4.setText("otte cifre i deres telefonnummer samt et postnummer som eksistere?");
+                popUpLabel3.setText("");
+            }
             //PdfHandler.gemPdf("morten ", "sdahsjdj", "54", "hasdj", "4578", "jasdkl@jsd.dk", "45781547", "4578547854785478", "Visa", "05", "1997", "548", kurv.returnBasket(), kurv.returnSelectedSize(), kurv.calculateTotalAmount());
         } catch (IOException | COSVisitorException ex) {
-            errorCodeFrame.pack();
-            errorCodeFrame.setVisible(true);
-            errorCodeLabel1.setText("Der mangler muligvis en fil i programroden");
-            errorCodeLabel2.setText("Kontakt administratoren og giv ham følgende oplysninger:");
-            errorCodeLabel3.setText("Fejlkode: " + ex.getMessage());
+            popUpFrame.pack();
+            popUpFrame.setVisible(true);
+            popUpLabel1.setText("Der mangler muligvis en fil i programroden");
+            popUpLabel2.setText("Kontakt administratoren og giv ham følgende oplysninger:");
+            popUpLabel3.setText("Fejlkode: " + ex.getMessage());
+            popUpLabel4.setText("");
         } catch (NumberFormatException ex) {
-            errorCodeFrame.pack();
-            errorCodeFrame.setVisible(true);
-            errorCodeLabel1.setText("De har ikke indtastet korrekte oplysninger");
-            errorCodeLabel2.setText("Har de huset deres fulde navn, en korrekt email, ");
-            errorCodeLabel4.setText("otte cifre i deres telefonnummer samt et postnummer som eksistere?");
-            errorCodeLabel3.setText("Fejlkode: " + ex.getMessage());
+            popUpFrame.pack();
+            popUpFrame.setVisible(true);
+            popUpLabel1.setText("De har ikke indtastet korrekte oplysninger");
+            popUpLabel2.setText("Har de huset deres fulde navn, en korrekt email, ");
+            popUpLabel4.setText("otte cifre i deres telefonnummer samt et postnummer som eksistere?");
+            popUpLabel3.setText("Fejlkode: " + ex.getMessage());
         } catch (Exception ex) {
-            errorCodeFrame.pack();
-            errorCodeFrame.setVisible(true);
-            errorCodeLabel1.setText("Uventet fejl");
-            errorCodeLabel2.setText("");
-            errorCodeLabel3.setText("Fejlkode: " + ex.getMessage());
+            popUpFrame.pack();
+            popUpFrame.setVisible(true);
+            popUpLabel1.setText("Uventet fejl");
+            popUpLabel2.setText("");
+            popUpLabel3.setText("Fejlkode: " + ex.getMessage());
+            popUpLabel4.setText("");
         }
     }//GEN-LAST:event_payButtonActionPerformed
 
@@ -773,11 +788,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JPanel checkoutPanel;
     private javax.swing.JTextField cityField;
     private javax.swing.JTextField eMailField;
-    private javax.swing.JFrame errorCodeFrame;
-    private javax.swing.JLabel errorCodeLabel1;
-    private javax.swing.JLabel errorCodeLabel2;
-    private javax.swing.JLabel errorCodeLabel3;
-    private javax.swing.JLabel errorCodeLabel4;
     private javax.swing.JLabel headerPrice;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
@@ -811,6 +821,11 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JTextField nameField;
     private javax.swing.JPanel pantsPanel;
     private javax.swing.JButton payButton;
+    private javax.swing.JFrame popUpFrame;
+    private javax.swing.JLabel popUpLabel1;
+    private javax.swing.JLabel popUpLabel2;
+    private javax.swing.JLabel popUpLabel3;
+    private javax.swing.JLabel popUpLabel4;
     private javax.swing.JPanel shirtPanel;
     private javax.swing.JTextField streetField;
     private javax.swing.JTextField streetNumField;

@@ -2,7 +2,7 @@
 
 <Form version="1.9" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
-    <Container class="javax.swing.JFrame" name="errorCodeFrame">
+    <Container class="javax.swing.JFrame" name="popUpFrame">
 
       <Layout>
         <DimensionLayout dim="0">
@@ -28,10 +28,10 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="errorCodeLabel3" alignment="0" pref="391" max="32767" attributes="0"/>
-                          <Component id="errorCodeLabel1" alignment="0" max="32767" attributes="0"/>
-                          <Component id="errorCodeLabel4" alignment="1" pref="391" max="32767" attributes="0"/>
-                          <Component id="errorCodeLabel2" alignment="0" pref="391" max="32767" attributes="0"/>
+                          <Component id="popUpLabel3" alignment="0" pref="391" max="32767" attributes="0"/>
+                          <Component id="popUpLabel1" alignment="0" max="32767" attributes="0"/>
+                          <Component id="popUpLabel4" alignment="1" pref="391" max="32767" attributes="0"/>
+                          <Component id="popUpLabel2" alignment="0" pref="391" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -41,32 +41,32 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
-                      <Component id="errorCodeLabel1" min="-2" max="-2" attributes="0"/>
+                      <Component id="popUpLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                      <Component id="errorCodeLabel2" min="-2" max="-2" attributes="0"/>
+                      <Component id="popUpLabel2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="errorCodeLabel4" min="-2" max="-2" attributes="0"/>
+                      <Component id="popUpLabel4" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                      <Component id="errorCodeLabel3" min="-2" max="-2" attributes="0"/>
+                      <Component id="popUpLabel3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="75" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="errorCodeLabel3">
+            <Component class="javax.swing.JLabel" name="popUpLabel3">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Label1"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="errorCodeLabel1">
+            <Component class="javax.swing.JLabel" name="popUpLabel1">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Label2"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="errorCodeLabel2">
+            <Component class="javax.swing.JLabel" name="popUpLabel2">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Label3"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -75,7 +75,7 @@
                 <Property name="horizontalTextPosition" type="int" value="0"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="errorCodeLabel4">
+            <Component class="javax.swing.JLabel" name="popUpLabel4">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Label3"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -91,9 +91,6 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
-    <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[750, 625]"/>
-    </Property>
     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[750, 625]"/>
     </Property>
