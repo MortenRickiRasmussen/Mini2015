@@ -706,8 +706,8 @@ public class GUI extends javax.swing.JFrame {
                 popUpFrame.pack();
                 popUpFrame.setVisible(true);
                 popUpLabel1.setText("De har ikke indtastet korrekte oplysninger");
-                popUpLabel2.setText("Har de huset deres fulde navn, en korrekt email, ");
-                popUpLabel4.setText("otte cifre i deres telefonnummer samt et postnummer som eksistere?");
+                popUpLabel2.setText("Har de husket deres fulde navn, en korrekt email, Vejnavn, Vejnummer, by, ");
+                popUpLabel4.setText("otte cifre i deres telefonnummer samt et postnummer som eksistere? Tjek evt. deres betalingsoplysninger");
                 popUpLabel3.setText("");
             }
             //PdfHandler.gemPdf("morten ", "sdahsjdj", "54", "hasdj", "4578", "jasdkl@jsd.dk", "45781547", "4578547854785478", "Visa", "05", "1997", "548", kurv.returnBasket(), kurv.returnSelectedSize(), kurv.calculateTotalAmount());
@@ -722,9 +722,16 @@ public class GUI extends javax.swing.JFrame {
             popUpFrame.pack();
             popUpFrame.setVisible(true);
             popUpLabel1.setText("De har ikke indtastet korrekte oplysninger");
-            popUpLabel2.setText("Har de huset deres fulde navn, en korrekt email, ");
-            popUpLabel4.setText("otte cifre i deres telefonnummer samt et postnummer som eksistere?");
+            popUpLabel2.setText("Har de husket deres fulde navn, en korrekt email, Vejnavn, Vejnummer, by, ");
+            popUpLabel4.setText("otte cifre i deres telefonnummer samt et postnummer som eksistere? Tjek evt. deres betalingsoplysninger");
             popUpLabel3.setText("Fejlkode: " + ex.getMessage());
+        } catch (ArrayIndexOutOfBoundsException ex) {
+            popUpFrame.pack();
+            popUpFrame.setVisible(true);
+            popUpLabel1.setText("Du har for mange dele i din kurv.");
+            popUpLabel2.setText("lav venligst 2 ordre istedet");
+            popUpLabel3.setText("Fejlkode: " + ex.getMessage());
+            popUpLabel4.setText("");
         } catch (Exception ex) {
             popUpFrame.pack();
             popUpFrame.setVisible(true);
