@@ -13,7 +13,10 @@ import Model.Product;
 import Model.Shirt;
 import Model.TShirt;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JPanel;
 import org.apache.pdfbox.exceptions.COSVisitorException;
 
@@ -69,7 +72,30 @@ public class GUI extends javax.swing.JFrame {
         //--------------------------------------------------------------------------
         // Loader de tre arraylists med produkter fra datasen
         //--------------------------------------------------------------------------
-        DBHandler.loadArrayLists(tShirts, pants, shirts);
+        try {
+            DBHandler.loadArrayLists(tShirts, pants, shirts);
+        } catch (ClassNotFoundException ex) {
+            popUpFrame.pack();
+            popUpFrame.setVisible(true);
+            popUpLabel1.setText("Kan ikke finde JDBC driver");
+            popUpLabel2.setText("Kontakt administrator");
+            popUpLabel4.setText("Fejl: "+ex.getMessage());
+            popUpLabel3.setText("");
+        } catch (SQLException ex) {
+            popUpFrame.pack();
+            popUpFrame.setVisible(true);
+            popUpLabel1.setText("Kan ikke få forbindelse til database server");
+            popUpLabel2.setText("Er du på internettet?, hvis ja, kontakt administrator");
+            popUpLabel4.setText("Database serveren er muligvis nede");
+            popUpLabel3.setText("Fejl: "+ex.getMessage());
+        } catch (Exception ex) {
+            popUpFrame.pack();
+            popUpFrame.setVisible(true);
+            popUpLabel1.setText("Ukendt Fejl");
+            popUpLabel2.setText("Fejl: "+ex.getMessage());
+            popUpLabel4.setText("");
+            popUpLabel3.setText("");
+        }
 
         //--------------------------------------------------------------------------
         // Fylder de tre produkt panels op med produkter dynamisk
