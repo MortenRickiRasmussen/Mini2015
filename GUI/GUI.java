@@ -75,6 +75,7 @@ public class GUI extends javax.swing.JFrame {
         try {
             DBHandler.loadArrayLists(tShirts, pants, shirts);
         } catch (ClassNotFoundException ex) {
+            popUpFrame.setDefaultCloseOperation(EXIT_ON_CLOSE);
             popUpFrame.pack();
             popUpFrame.setVisible(true);
             popUpLabel1.setText("Kan ikke finde JDBC driver");
@@ -82,6 +83,7 @@ public class GUI extends javax.swing.JFrame {
             popUpLabel4.setText("Fejl: "+ex.getMessage());
             popUpLabel3.setText("");
         } catch (SQLException ex) {
+            popUpFrame.setDefaultCloseOperation(EXIT_ON_CLOSE);
             popUpFrame.pack();
             popUpFrame.setVisible(true);
             popUpLabel1.setText("Kan ikke få forbindelse til database server");
@@ -89,6 +91,7 @@ public class GUI extends javax.swing.JFrame {
             popUpLabel4.setText("Database serveren er muligvis nede");
             popUpLabel3.setText("Fejl: "+ex.getMessage());
         } catch (Exception ex) {
+            popUpFrame.setDefaultCloseOperation(EXIT_ON_CLOSE);
             popUpFrame.pack();
             popUpFrame.setVisible(true);
             popUpLabel1.setText("Ukendt Fejl");
