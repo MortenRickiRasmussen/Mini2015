@@ -690,17 +690,11 @@ public class GUI extends javax.swing.JFrame {
         try {
             //PdfHandler.gemPdf(name, street, streetNum, city, zipCode, eMail, telephone, cardNumber, cardType, month, year, ccv, kurv.returnBasket(), kurv.returnSelectedSize(), kurv.calculateTotalAmount());
             PdfHandler.gemPdf("morten ", "sdahsjdj", "54", "hasdj", "4578", "jasdkl@jsd.dk", "45781547", "4578547854785478", "Visa", "05", "1997", "548", kurv.returnBasket(), kurv.returnSelectedSize(), kurv.calculateTotalAmount());
-        } catch (IOException ex) {
+        } catch (IOException | COSVisitorException ex) {
             errorCodeFrame.pack();
             errorCodeFrame.setVisible(true);
-            errorCodeLabel1.setText("Den valgte sti blev ikke fundet.");
-            errorCodeLabel2.setText("Er der oprettet forbindelse til serveren?");
-            errorCodeLabel3.setText("Fejlkode: " + ex.getMessage());
-        } catch (COSVisitorException ex) {
-            errorCodeFrame.pack();
-            errorCodeFrame.setVisible(true);
-            errorCodeLabel1.setText("Den valgte sti blev ikke fundet.");
-            errorCodeLabel2.setText("Er der oprettet forbindelse til serveren?");
+            errorCodeLabel1.setText("Der mangler muligvis en fil i programroden");
+            errorCodeLabel2.setText("Kontakt administratoren og giv ham følgende oplysninger:");
             errorCodeLabel3.setText("Fejlkode: " + ex.getMessage());
         } catch (NumberFormatException ex) {
             errorCodeFrame.pack();
